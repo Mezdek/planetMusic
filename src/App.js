@@ -13,12 +13,7 @@ import Container from 'react-bootstrap/Container';
 function App() {
   return (
     <div className="App">
-      <div className="home-page-wrapper">
-          {/* <NavBar />
-          <HomePage />
-          <Footer /> */}
-          <h1>hello world!</h1>
-        </div>
+
     </div>
   );
 }
