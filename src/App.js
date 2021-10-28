@@ -14,9 +14,11 @@ import FinalEvent from './components/US-03-Events'
 function App() {
   
   return (
-
-      <FinalEvent />
-
+    <>
+      <div className="test">
+        <FinalEvent />
+      </div>
+      </>
     )
   }
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import Event from './components/Events'
 import MoreEventsButton from './components/MoreEventsButton'
+import './style.css'
 
 function FinalEvent() {
     const [events, setEvents] = React.useState([])
-    const [visible, setVisible] = React.useState(5)
+    const [visible, setVisible] = React.useState(6)
 
     
     React.useEffect(
@@ -19,11 +20,12 @@ function FinalEvent() {
 
 
       return (
-        <div className="App">
+        <div className="finalEventWrapper">
+          <h1>MUSIC EVENTS IN GERMANY:</h1>
           {
           events.slice(0, visible).map((event, index)=>{
             return (
-            <Event 
+            <Event
               key={index} 
               cityName={event._embedded.venues[0].city.name}
               eventName={event.name}
@@ -31,8 +33,8 @@ function FinalEvent() {
               imgUrl={event.images[0].url}
               />)
           })
-        }
-            {visible < events.length && (<button onClick={()=>setVisible(visible+5)}>LOAD MORE</button>)}
+        } <br/>
+            {visible < events.length && (<button className="showMoreEventsButton" onClick={()=>setVisible(visible+6)}>LOAD MORE</button>)}
         </div>
 
       );
