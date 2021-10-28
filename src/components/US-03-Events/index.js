@@ -5,6 +5,7 @@ import MoreEventsButton from './components/MoreEventsButton'
 function FinalEvent() {
     const [events, setEvents] = React.useState([])
     const [visible, setVisible] = React.useState(5)
+
     
     React.useEffect(
       ()=>{
@@ -14,14 +15,9 @@ function FinalEvent() {
           setEvents(response._embedded.events)
         })
       },[])
-
-      React.useEffect(
-          ()=>{
-
-          }
-
-      )
     
+
+
       return (
         <div className="App">
           {
@@ -36,7 +32,7 @@ function FinalEvent() {
               />)
           })
         }
-            {visible < events.length && (<MoreEventsButton/>)}
+            {visible < events.length && (<button onClick={()=>setVisible(visible+5)}>LOAD MORE</button>)}
         </div>
 
       );
