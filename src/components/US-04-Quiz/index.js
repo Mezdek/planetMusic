@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import StartPage from './components/StartPage';
-import Questions from './components/Questions';
+import Questions from './components/questions';
 import { useState } from 'react';
 
 function Quiz() {
