@@ -1,0 +1,7 @@
+.trackContainer{ width:80%;
+    display: flex;
+    margin: 0 auto 5px;
+    border: 1solid;
+
+}
+h2{text-align: center;}
