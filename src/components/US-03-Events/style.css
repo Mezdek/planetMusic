@@ -1,3 +1,10 @@
 .showMoreEventsButton{
     margin-top: 10px;
+    margin-left: 400px;
+    width: 250px;
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 20px;
+    background-color: rgb(9, 104, 128);
+    color: white;
 }

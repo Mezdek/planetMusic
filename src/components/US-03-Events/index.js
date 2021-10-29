@@ -2,6 +2,7 @@ import React from 'react'
 import Event from './components/Events'
 import MoreEventsButton from './components/MoreEventsButton'
 import './style.css'
+import Container from 'react-bootstrap/Container';
 
 function FinalEvent() {
     const [events, setEvents] = React.useState([])
@@ -34,7 +35,7 @@ function FinalEvent() {
               />)
           })
         } <br/>
-            {visible < events.length && (<button className="showMoreEventsButton" onClick={()=>setVisible(visible+6)}>LOAD MORE</button>)}
+            {visible < events.length && (<button style={{width:"300"}} className="showMoreEventsButton" onClick={()=>setVisible(visible+6)}>LOAD MORE</button>)}
         </div>
 
       );
