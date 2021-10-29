@@ -7,6 +7,7 @@ function Questions() {
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [questionCounter, setQuestionCounter] = useState(0);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     console.log('start api call');
@@ -21,7 +22,7 @@ function Questions() {
       .catch((error) => console.log(error));
   }, []);
 
-  return <div>{loading ? <Loading /> : <Question {...questions[questionCounter]} />}</div>;
+  return <div>{loading ? <Loading /> : <Question {...questions[questionCounter]} score={score} setScore={setScore} questionCounter={questionCounter} setQuestionCounter={setQuestionCounter} />}</div>;
 }
 
 export default Questions;
