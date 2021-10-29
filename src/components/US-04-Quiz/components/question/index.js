@@ -18,14 +18,14 @@ function Question({
     const answers = [correct_answer, ...incorrect_answers];
     const shuffledAnswers = answers.sort((a, b) => 0.5 - Math.random());
     setAnswers(shuffledAnswers);
-  }, []);
+  }, [clicked]);
 
   const checkAnswer = (e) => {
     if (e.target.innerText === correct_answer) {
       setCorrect(true);
       e.target.className = 'btn btn-lg btn-success';
       setScore(score + 10);
-      // setQuestionCounter(questionCounter + 1);
+      setQuestionCounter(questionCounter + 1);
     } else {
       setCorrect(false);
       e.target.className = 'btn btn-lg btn-danger';
@@ -35,7 +35,7 @@ function Question({
           answer.disabled = 'true';
         }
       });
-      // setQuestionCounter(questionCounter + 1);
+      setQuestionCounter(questionCounter + 1);
     }
   };
 
@@ -46,6 +46,7 @@ function Question({
       <div className='d-grid gap-2'>
         {answers.map((item, index) => (
           <Button
+            className=''
             variant='outline-info'
             size='lg'
             key={index}
