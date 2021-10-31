@@ -3,7 +3,7 @@ import axios from 'axios';
 import Loading from '../../../shared-components/loading';
 import Question from "../question";
 
-function Questions() {
+function Questions({setIsFinished}) {
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [questionCounter, setQuestionCounter] = useState(0);
@@ -23,8 +23,12 @@ function Questions() {
   }, []);
 
   function nextQuestion() {
+    if (questionCounter === 9) {
+      setIsFinished(true)
+    } else {
     setQuestionCounter(questionCounter + 1);
     // as the key value of the component ist set to questionCounter, it will automatically trigger a new instance of the component, which is what I want to reset the style changes of the buttons
+    }
   }
 
   return (

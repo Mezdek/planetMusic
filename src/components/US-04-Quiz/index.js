@@ -6,11 +6,12 @@ import "./quiz.css";
 
 function Quiz() {
   const [quizStart, setQuizStart] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
 
   return (
     <Container fluid='md' className="quiz-main-container">
-      {quizStart ? (
-        <Questions />
+      {quizStart && !isFinished ? (
+        <Questions setIsFinished={setIsFinished} />
       ) : (
         <StartPage start={() => setQuizStart(true)} />
       )}
