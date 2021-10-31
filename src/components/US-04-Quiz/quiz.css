@@ -5,3 +5,11 @@
 .quiz-main-container .center {
   text-align: center;
 }
+
+.quiz-main-container .flex {
+  display: flex;
+}
+
+.quiz-main-container .flex-jc-c {
+  justify-content: center;
+}

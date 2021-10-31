@@ -22,7 +22,17 @@ function Questions() {
       .catch((error) => console.log(error));
   }, []);
 
-  return <div>{loading ? <Loading /> : <Question {...questions[questionCounter]} score={score} setScore={setScore} questionCounter={questionCounter} setQuestionCounter={setQuestionCounter} />}</div>;
+  function nextQuestion() {
+    setQuestionCounter(questionCounter + 1);
+    // as the key value of the component ist set to questionCounter, it will automatically trigger a new instance of the component, which is what I want to reset the style changes of the buttons
+  }
+
+  return (
+    <div>
+      <h2 className='center'>Score: {score}</h2>
+      {loading ? <Loading /> : <Question key={questionCounter} {...questions[questionCounter]} score={score} setScore={setScore} nextQuestion={nextQuestion} />}
+    </div>
+  )
 }
 
 export default Questions;
