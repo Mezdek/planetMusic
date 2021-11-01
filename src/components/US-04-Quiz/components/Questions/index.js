@@ -10,24 +10,22 @@ function Questions({setIsFinished, score, setScore, difficulty}) {
   
 
   useEffect(() => {
-    console.log('start api call');
     axios
       .get(`https://opentdb.com/api.php?amount=10&category=12&difficulty=${difficulty}`)
       .then((response) => {
-        console.log('setting Questions');
         setQuestions(response.data.results);
-        console.log('questions set ', questions);
         setLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
+  // when difficulty is an empty string it defaults to "any", which is a mix of all three difficulty levels
 
   function nextQuestion() {
     if (questionCounter === 9) {
       setIsFinished(true)
     } else {
     setQuestionCounter(questionCounter + 1);
-    // as the key value of the component ist set to questionCounter, it will automatically trigger a new instance of the component, which is what I want to reset the style changes of the buttons
+    // as the key value of the component is set to questionCounter, it will automatically trigger a new instance of the component, which is what I want to reset the style changes of the buttons
     }
   }
 

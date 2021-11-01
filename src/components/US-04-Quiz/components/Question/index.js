@@ -18,6 +18,7 @@ function Question({
     const shuffledAnswers = answers.sort((a, b) => 0.5 - Math.random());
     setAnswers(shuffledAnswers);
   }, []);
+  // combines the correct answer with the array of wrong answers and shuffle them
 
   const checkAnswer = (e) => {
     if (e.target.innerText === correct_answer) {
@@ -36,7 +37,9 @@ function Question({
           break;
       }
     } else {
+      // show the clicked answer red
       e.target.className = 'btn btn-lg btn-danger';
+      // search for the right answer and display green
       e.target.parentNode.childNodes.forEach((answer) => {
         if (answer.innerText === correct_answer) {
           answer.className = 'btn btn-lg btn-success';
