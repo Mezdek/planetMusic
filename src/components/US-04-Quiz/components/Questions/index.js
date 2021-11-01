@@ -33,7 +33,7 @@ function Questions({setIsFinished, score, setScore, difficulty}) {
 
   return (
     <div>
-      <h2 className='center'>Score: {score}</h2>
+      <h2 className='text-center'>Score: {score}</h2>
       {loading ? <Loading /> : <Question key={questionCounter} {...questions[questionCounter]} score={score} setScore={setScore} nextQuestion={nextQuestion} />}
     </div>
   )

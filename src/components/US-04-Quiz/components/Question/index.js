@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 function Question({
   question,
+  difficulty,
   correct_answer,
   incorrect_answers,
   setScore,
@@ -21,7 +22,19 @@ function Question({
   const checkAnswer = (e) => {
     if (e.target.innerText === correct_answer) {
       e.target.className = 'btn btn-lg btn-success';
-      setScore(score + 10);
+      switch (difficulty) {
+        case "easy":
+          setScore(score + 10)
+          break;
+        case "medium":
+          setScore(score + 30);
+          break;
+        case "hard":
+          setScore(score + 50);
+          break;
+        default:
+          break;
+      }
     } else {
       e.target.className = 'btn btn-lg btn-danger';
       e.target.parentNode.childNodes.forEach((answer) => {
@@ -34,6 +47,7 @@ function Question({
 
   return (
     <div>
+
       <h3>{question}</h3>
       <div className='d-grid gap-2 mt-5'>
         {answers.map((item, index) => (
@@ -52,7 +66,7 @@ function Question({
           </Button>
         ))}
       </div>
-      <div className='flex flex-jc-c mt-5'>
+      <div className='d-flex justify-content-center mt-5'>
         <Button
           variant='success'
           size='lg'

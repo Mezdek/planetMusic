@@ -29,7 +29,7 @@ function Quiz() {
   ]);
 
   return (
-    <Container fluid='md' className='quiz-main-container'>
+    <Container fluid='md' className='quiz-main-container mt-5'>
       {quizStart && !isFinished ? (
         <Questions
           setIsFinished={setIsFinished}
@@ -50,7 +50,7 @@ function Quiz() {
         </div>
       ) : null}
 
-      <Highscores highscores={highscores} />
+      {!quizStart || isFinished ? <Highscores highscores={highscores} /> : null}
     </Container>
   );
 }
