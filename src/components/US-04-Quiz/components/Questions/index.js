@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../../../shared-components/loading';
-import Question from "../question";
+import Question from "../Question";
 
-function Questions({setIsFinished}) {
+function Questions({setIsFinished, score, setScore, difficulty}) {
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [questionCounter, setQuestionCounter] = useState(0);
-  const [score, setScore] = useState(0);
+  
 
   useEffect(() => {
     console.log('start api call');
     axios
-      .get('https://opentdb.com/api.php?amount=10&category=12')
+      .get(`https://opentdb.com/api.php?amount=10&category=12&difficulty=${difficulty}`)
       .then((response) => {
         console.log('setting Questions');
         setQuestions(response.data.results);
