@@ -9,6 +9,7 @@ function Question({
   setScore,
   score,
   nextQuestion,
+  questionCounter,
 }) {
   const [answers, setAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
@@ -24,13 +25,13 @@ function Question({
     if (e.target.innerText === correct_answer) {
       e.target.className = 'btn btn-lg btn-success';
       switch (difficulty) {
-        case "easy":
-          setScore(score + 10)
+        case 'easy':
+          setScore(score + 10);
           break;
-        case "medium":
+        case 'medium':
           setScore(score + 30);
           break;
-        case "hard":
+        case 'hard':
           setScore(score + 50);
           break;
         default:
@@ -50,8 +51,12 @@ function Question({
 
   return (
     <div>
-
-      <h3>{question}</h3>
+      <div className='d-flex justify-content-between'>
+        <p>Difficulty: {difficulty}</p>
+        <p>Question {questionCounter + 1}/10</p>
+      </div>
+      <h2 className='text-center mb-5'>Score: {score}</h2>
+      <h3 className='text-center'>{question}</h3>
       <div className='d-grid gap-2 mt-5'>
         {answers.map((item, index) => (
           <Button
@@ -76,7 +81,7 @@ function Question({
           disabled={!clicked}
           onClick={nextQuestion}
         >
-          Next
+          {questionCounter === 9 ? 'Finish!' : 'Next'}
         </Button>
       </div>
     </div>

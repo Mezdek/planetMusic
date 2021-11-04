@@ -14,6 +14,16 @@ function Quiz() {
   const [score, setScore] = useState(0);
   const [highscores, setHighscores] = useState([
     {
+      name: 'Susi',
+      score: 300,
+      date: '2021/08/23',
+    },
+    {
+      name: 'Tom',
+      score: 150,
+      date: '2021/09/12',
+    },
+    {
       name: 'Maggy',
       score: 80,
       date: '2021/08/09',
@@ -39,6 +49,14 @@ function Quiz() {
     }
   }, [isFinished]);
 
+  const start = () => {
+    // reset everything when Start button is clicked
+    setQuizStart(true);
+    setIsFinished(false);
+    setName('');
+    setScore(0);
+  };
+
   const saveNewHighscore = () => {
     const newObj = {
       name: name,
@@ -47,7 +65,12 @@ function Quiz() {
     };
     const newArray = [...highscores, newObj];
     const sortedArray = newArray.sort((a, b) => b.score - a.score);
+    if (sortedArray.length > 5) {
+      sortedArray.pop();
+    }
     setHighscores(sortedArray);
+    setNewHighscore(false);
+    setIsFinished(false);
   };
 
   return (
@@ -59,39 +82,57 @@ function Quiz() {
           score={score}
           setScore={setScore}
           difficulty={difficulty}
+          setQuizStart={setQuizStart}
         />
       ) : (
         <>
           {/* show startpage before and after the quiz */}
-          <StartPage
-            start={() => setQuizStart(true)}
-            setDifficulty={setDifficulty}
-          />
+          <StartPage start={start} setDifficulty={setDifficulty} />
 
           {/* only after the quiz show the score */}
           {isFinished ? (
-            <div>
-              <h2>You reached {score} points!</h2>
+            <div className='row justify-content-center m-5'>
+              <div className='col-auto border border-warning rounded p-3 bg-info'>
+                <h2 className='text-center text-warning'>
+                  You reached {score} points!
+                </h2>
+              </div>
             </div>
           ) : null}
 
           {/* show if it's a new highscore */}
           {isFinished && newHighscore ? (
-            <div>
-              <h2>This is a new Highscore!</h2>
-              <label htmlFor='highscore-input'>Please enter your name</label>
-              <input
-                type='text'
-                id='highscore-input'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Button variant='outline-success' onClick={saveNewHighscore}>
-                Save
-              </Button>
+            <div className='row justify-content-center m-5'>
+              <div>
+                <h2 className='text-center text-info'>
+                  This is a new Highscore!
+                </h2>
+                <div className='row justify-content-center align-items-center'>
+                  <div className='col p-0 col-auto'>
+                    <input
+                      className='form-control my-1'
+                      type='text'
+                      id='highscore-input'
+                      placeholder='Please enter your name...'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className='col p-0 col-auto'>
+                    <Button
+                      variant='outline-success'
+                      onClick={saveNewHighscore}
+                    >
+                      Save
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : isFinished ? (
-            <h2>You missed the top ten :&#40; </h2>
+            <h2 className='text-center text-info'>
+              You missed the top ten :&#40;{' '}
+            </h2>
           ) : null}
 
           {/* show highscores before and after the quiz */}
