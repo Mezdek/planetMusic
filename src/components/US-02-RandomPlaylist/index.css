@@ -1,76 +1,12 @@
-* {
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 0;
 }
-:root{
-  --prog:0%;
-  --aud-btns: 8px;
-  --pink: #FF66C4;
-  --blue: #B2EDEF;
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
-.page {
-  position: relative;
-  background: var(--blue);
-  background-color: #ECFBFB;
-  width: 100vw;
-  height: 100vh;
-}
-
-.player{
-  position: fixed;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 0;
-  height: 100px;
-  width: 100vw;
-  background-color: var(--blue);
-}
-
-#progcon{
-  display: block;
-  height: 6px;
-  width: 100vw;
-  /* background-color: yellow; */
-}
-
-#progbar{
-  display: block;
-  height: 6px;
-  width: var(--prog,0);
-  background: linear-gradient(var(--pink) 20%, var(--blue),var(--pink) 80%);
-  border-radius: 0 10px 10px 0;
-  border-right: solid var(--pink);
-  pointer-events: none;
-}
-
-#buttons{
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
-  align-items: center;
-  margin: var(--aud-btns);
-}
-
-
-#playbtn{
-  display: block;
-}
-
-#playbtn:hover{
-  transform: scale(1.03, 1.03);
-}
-
-/* .pla {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 0;
-    height: 0;
-    border: 100px solid transparent;
-    border-right-color: yellow;
-    border-left-color: yellow;
-    border-radius: 0% 50% 0 50%;
-} */

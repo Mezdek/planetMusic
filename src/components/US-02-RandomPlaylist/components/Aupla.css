@@ -1,0 +1,65 @@
+:root {
+  --prog: 0%;
+  --aud-btns: 8px;
+  --pink: #ff66c4;
+  --blue: #b2edef;
+}
+
+.player {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--blue);
+}
+
+#progcon {
+  display: block;
+  height: 6px;
+  width: 100%;
+}
+
+#progbar {
+  display: block;
+  height: 6px;
+  width: var(--prog, 0);
+  background: linear-gradient(var(--pink) 20%, var(--blue), var(--pink) 80%);
+  border-radius: 0 10px 10px 0;
+  border-right: solid var(--pink);
+  pointer-events: none;
+}
+
+#panel {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: var(--aud-btns);
+}
+
+#controls {
+  position: relative;
+  display: flex;
+}
+
+#playbtn {
+  display: block;
+}
+
+#playbtn:hover {
+  transform: scale(1.03, 1.03);
+}
+
+#loopbtn {
+  display: block;
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
