@@ -11,6 +11,7 @@ export default function SearchBarEvents() {
                 <option value="date">Date</option>
                 <option value="artist">Artist</option>
             </select>
+            
             <input></input>
             <button>Search</button>
         </div>

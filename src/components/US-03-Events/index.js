@@ -16,6 +16,7 @@ function FinalEvent() {
         .then((response)=>{return response.json()})
         .then((response)=>{
           setEvents(response._embedded.events)
+          console.log(response._embedded.events)
         })
         .catch((err) => {
           console.log('Not able to fetch API data', err)
@@ -39,6 +40,7 @@ function FinalEvent() {
               eventName={event.name}
               eventDate={event.dates.start.localDate}
               imgUrl={event.images[0].url}
+              eventUrl={event.url}
               />)
           })
         } </div>
