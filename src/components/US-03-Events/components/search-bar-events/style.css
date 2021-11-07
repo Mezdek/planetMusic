@@ -1,5 +1,42 @@
 .searchBarContainer{
     display: flex;
-    width: 40%;
-    justify-content: space-around;
+    width: 60vw;
+    height: 3rem;
+    justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+    .searchBarContainer{
+        display: flex;
+        flex-direction: column;
+        height: 140px;
+        width: 60vw;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+}
+
+.inputSearchCategory{
+    margin: 0 2%;
+}
+
+.searchByLabel{
+    margin: 1% 2%;
+    text-align: center;
+}
+
+.searchByCategoryButton{
+    background-color: rgba(34, 170, 211, 0.281);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 25px;
+    width: 8rem;
+    margin: 0 2%;
+}
+
+.searchByCategoryButton:hover{
+    background-color: rgba(253, 154, 232);
+    font-weight: 600;
+    box-sizing:border-box;
 }
