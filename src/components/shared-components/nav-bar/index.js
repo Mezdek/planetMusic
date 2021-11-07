@@ -7,7 +7,7 @@ import logo from "./images/logo.png"
 function NavBar() {
   return (
     <Navbar bg='dark' variant='dark'>
-      {/* <Container> */}
+      <Container>
         <Navbar.Brand href='#home' ><img src={logo} style={{width:"100px"}} alt="logo"/></Navbar.Brand>
         <Nav className='me-auto'>
           <Nav.Link>
@@ -26,7 +26,7 @@ function NavBar() {
             <Link to='/quiz' style={{color:"white"}}>Quiz</Link>
           </Nav.Link>
         </Nav>
-      {/* </Container> */}
+      </Container>
     </Navbar>
   );
 }

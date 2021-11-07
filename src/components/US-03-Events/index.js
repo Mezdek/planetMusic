@@ -3,6 +3,7 @@ import Event from './components/Events'
 import MoreEventsButton from './components/MoreEventsButton'
 import './style.css'
 import Container from 'react-bootstrap/Container';
+import SearchBarEvents from './components/search-bar-events';
 
 function FinalEvent() {
     const [events, setEvents] = React.useState([])
@@ -16,13 +17,19 @@ function FinalEvent() {
         .then((response)=>{
           setEvents(response._embedded.events)
         })
+        .catch((err) => {
+          console.log('Not able to fetch API data', err)
+        })
       },[])
     
 
 
       return (
-        <div className="finalEventWrapper">
-          <h1>MUSIC EVENTS IN GERMANY:</h1>
+        <Container>
+        <div className="allElementsContainer">
+          <h1 className="pageIntro">MUSIC EVENTS IN GERMANY:</h1>
+          <SearchBarEvents/>
+          <div className ="allEventsContainer">
           {
           events.slice(0, visible).map((event, index)=>{
             return (
@@ -34,10 +41,12 @@ function FinalEvent() {
               imgUrl={event.images[0].url}
               />)
           })
-        } <br/>
-            {visible < events.length && (<button style={{width:"300"}} className="showMoreEventsButton" onClick={()=>setVisible(visible+6)}>LOAD MORE</button>)}
+        } </div>
+          <div className="moreEventsButton">
+            <MoreEventsButton events = {events} visible = {visible} setVisible={setVisible}/>
+          </div>
         </div>
-
+      </Container>
       );
     }
     
