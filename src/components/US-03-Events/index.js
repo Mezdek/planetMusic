@@ -7,23 +7,23 @@ import SearchBarEvents from './components/search-bar-events';
 
 function FinalEvent() {
   
-  const [events, setEvents] = React.useState([])
+  const [allEvents, setEvents] = React.useState([])
   const [visible, setVisible] = React.useState(6)
 
     const searchCategories = [
       "",
       "Location",
       "Date", 
-      "Artist"
+      "Keyword"
     ] 
   
   const [selectedSearchCategory, setSelectedSearchCategory] = React.useState(searchCategories[0])
-
-
   const [selectedCity, setSelectedCity] = React.useState('')
+  const [searchButton, setSearchButton] = React.useState(!false)
+
   const [selectedStartDate, setSelectedStartDate] = React.useState('providetodaydate')
   const [selectedEndDate, setSelectedEndDate] = React.useState('providetodaydate')
-  const [selectedArtist, setSelectedArtist] = React.useState('providetodaydate')
+  const [selectedKeyword, setSelectedKeyword] = React.useState('')
 
     React.useEffect(
       ()=>{
@@ -34,8 +34,12 @@ function FinalEvent() {
         url.searchParams.append("sort", "date,asc")
 
         //if selectedCity string is not empty(which evaluates to true), return all the events with applied filter
-        if(selectedCity) {
+        if(selectedSearchCategory == searchCategories[1] && selectedCity !== "") {
           url.searchParams.append("city", selectedCity)
+        }
+
+        if(selectedSearchCategory == searchCategories[3] && selectedKeyword !== "") {
+          url.searchParams.append("keyword", selectedKeyword)
         }
 
         // url.searchParams.append("classificationName", "Music")
@@ -52,7 +56,7 @@ function FinalEvent() {
         .catch((err) => {
           console.log('Not able to fetch API data', err)
         })
-      },[])
+      },[selectedSearchCategory, searchButton])
     
 
 
@@ -64,10 +68,16 @@ function FinalEvent() {
           searchCategories={searchCategories}
           selectedSearchCategory={selectedSearchCategory} 
           setSelectedSearchCategory={setSelectedSearchCategory}
+          selectedCity={selectedCity}
+          setSelectedCity={setSelectedCity}
+          searchButton={searchButton} 
+          setSearchButton={setSearchButton}
+          selectedKeyword={selectedKeyword}
+          setSelectedKeyword={setSelectedKeyword}
           />
           <div className ="allEventsContainer">
           {
-          events.slice(0, visible).map((event, index)=>{
+          allEvents.slice(0, visible).map((event, index)=>{
             return (
             <Event
               key={index} 
@@ -80,7 +90,11 @@ function FinalEvent() {
           })
         } </div>
           <div className="moreEventsButton">
-            <MoreEventsButton events = {events} visible = {visible} setVisible={setVisible}/>
+            <MoreEventsButton 
+            allEvents = {allEvents} 
+            visible = {visible} 
+            setVisible={setVisible}
+            />
           </div>
         </div>
       </Container>

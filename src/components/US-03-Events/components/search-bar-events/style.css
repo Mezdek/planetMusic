@@ -1,7 +1,7 @@
 .searchBarContainer{
     display: flex;
     width: 60vw;
-    height: 3rem;
+    height: 2.5rem;
     justify-content: center;
 }
 
@@ -22,8 +22,19 @@
 }
 
 .searchByLabel{
-    margin: 1% 2%;
+    margin: 0 2%;
     text-align: center;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+}
+
+@media screen and (max-width: 582px) {
+.searchByLabel{
+    margin: 0 2%;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 0;
+}
 }
 
 .searchByCategoryButton{
@@ -39,4 +50,8 @@
     background-color: rgba(253, 154, 232);
     font-weight: 600;
     box-sizing:border-box;
+}
+
+.selectCategoryOption{
+    width: 7rem;
 }
