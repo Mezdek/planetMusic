@@ -34,7 +34,7 @@ function FinalEvent() {
         url.searchParams.append("sort", "date,asc")
         url.searchParams.append("classificationName", "Music")
 
-        //if selectedCity string is not empty(which evaluates to true), return all the events with applied filter
+        //if selectedCity string is not empty(which evaluates to true), and selectedSearchCategory is selected, return all the events with applied filter
         if(selectedSearchCategory == searchCategories[1] && selectedCity !== "") {
           url.searchParams.append("city", selectedCity)
         }
