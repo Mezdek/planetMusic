@@ -32,21 +32,21 @@ function FinalEvent() {
         url.searchParams.append("apikey", "3HsiJ0SglnkQTD4lRtIkQqVgI5i9kB8z")
         url.searchParams.append("size", "200")
         url.searchParams.append("sort", "date,asc")
+        url.searchParams.append("classificationName", "Music")
 
         //if selectedCity string is not empty(which evaluates to true), return all the events with applied filter
         if(selectedSearchCategory == searchCategories[1] && selectedCity !== "") {
           url.searchParams.append("city", selectedCity)
         }
 
+        if(selectedSearchCategory == searchCategories[2] && selectedStartDate !== "" && selectedEndDate !== "") {
+          url.searchParams.append("startDateTime", `${selectedStartDate}T00:00:00Z`)
+          url.searchParams.append("endDateTime", `${selectedEndDate}T23:59:59Z`)
+        }
+
         if(selectedSearchCategory == searchCategories[3] && selectedKeyword !== "") {
           url.searchParams.append("keyword", selectedKeyword)
         }
-
-        // url.searchParams.append("classificationName", "Music")
-        // url.searchParams.append("startDateTime", selectedStartDate)
-        // url.searchParams.append("endDateTime", selectedEndDate)
-        // url.searchParams.append("", selectedArtist)
-        // startDateTime=${}&endDateTime=${}&city=${location}
 
         fetch(url.href)
         .then((response)=>{return response.json()})
@@ -74,6 +74,10 @@ function FinalEvent() {
           setSearchButton={setSearchButton}
           selectedKeyword={selectedKeyword}
           setSelectedKeyword={setSelectedKeyword}
+          selectedStartDate={selectedStartDate}
+          setSelectedStartDate={setSelectedStartDate}
+          selectedEndDate={selectedEndDate}
+          setSelectedEndDate={setSelectedEndDate}
           />
           <div className ="allEventsContainer">
           {

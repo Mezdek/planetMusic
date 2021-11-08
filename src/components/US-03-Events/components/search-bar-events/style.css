@@ -1,6 +1,6 @@
 .searchBarContainer{
     display: flex;
-    width: 60vw;
+    width: 70vw;
     height: 2.5rem;
     justify-content: center;
 }
@@ -13,6 +13,8 @@
         width: 60vw;
         justify-content: space-between;
         align-items: center;
+        text-align: center;
+        margin-top: 3%;
 
     }
 }
@@ -22,18 +24,22 @@
 }
 
 .searchByLabel{
-    margin: 0 2%;
+    /* margin: 0 2%;
     text-align: center;
     font-size: 0.9rem;
-    margin-top: 0.4rem;
+    margin-top: 0.4rem; */
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding-right: 0.9rem;
 }
 
-@media screen and (max-width: 582px) {
+@media screen and (max-width: 480px) {
 .searchByLabel{
-    margin: 0 2%;
+    /* margin: 0 2%;
     text-align: center;
-    font-size: 0.9rem;
-    margin-top: 0;
+    font-size: 0.9rem; */
+    margin-top: 2%;
 }
 }
 
