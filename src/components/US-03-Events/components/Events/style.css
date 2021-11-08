@@ -15,6 +15,9 @@
     font-weight: 700;
     font-size: 1vw;
     text-decoration: none;
+    background-image: url("./pexels-gradienta-7130541.jpg");
+    background-size: 150%;
+    background-blend-mode:soft-light;
 }
 
 .singleEventWrapper:hover{

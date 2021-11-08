@@ -1,9 +1,13 @@
+body{
+
+}
+
 .allElementsContainer{
-    margin-top: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+
 }
 
 .allEventsContainer{
@@ -19,8 +23,21 @@
 
 .pageIntro{
     font-weight: 900;
-    color: rgb(240, 107, 206);
-    text-shadow: 2px 3px rgb(104, 35, 100);
+    font-size: 4rem;
+    color: rgb(75, 37, 65);
+    text-shadow: 2px 3px rgb(238, 168, 234);
     margin-bottom: 2%;
     text-align: center;
+}
+
+.introductionBackground{
+    width: 100vw;
+    height: 450px;
+    background-image: url("./components/Events/pexels-gradienta-7130486.jpg");
+    background-size: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

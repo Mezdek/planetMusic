@@ -63,22 +63,24 @@ function FinalEvent() {
       return (
         <Container>
         <div className="allElementsContainer">
+          <div className="introductionBackground">
           <h1 className="pageIntro">MUSIC EVENTS IN GERMANY:</h1>
-          <SearchBarEvents 
-          searchCategories={searchCategories}
-          selectedSearchCategory={selectedSearchCategory} 
-          setSelectedSearchCategory={setSelectedSearchCategory}
-          selectedCity={selectedCity}
-          setSelectedCity={setSelectedCity}
-          searchButton={searchButton} 
-          setSearchButton={setSearchButton}
-          selectedKeyword={selectedKeyword}
-          setSelectedKeyword={setSelectedKeyword}
-          selectedStartDate={selectedStartDate}
-          setSelectedStartDate={setSelectedStartDate}
-          selectedEndDate={selectedEndDate}
-          setSelectedEndDate={setSelectedEndDate}
-          />
+              <SearchBarEvents 
+              searchCategories={searchCategories}
+              selectedSearchCategory={selectedSearchCategory} 
+              setSelectedSearchCategory={setSelectedSearchCategory}
+              selectedCity={selectedCity}
+              setSelectedCity={setSelectedCity}
+              searchButton={searchButton} 
+              setSearchButton={setSearchButton}
+              selectedKeyword={selectedKeyword}
+              setSelectedKeyword={setSelectedKeyword}
+              selectedStartDate={selectedStartDate}
+              setSelectedStartDate={setSelectedStartDate}
+              selectedEndDate={selectedEndDate}
+              setSelectedEndDate={setSelectedEndDate}
+              />
+            </div>
           <div className ="allEventsContainer">
           {
           allEvents.slice(0, visible).map((event, index)=>{
