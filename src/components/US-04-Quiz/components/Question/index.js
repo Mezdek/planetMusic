@@ -10,6 +10,7 @@ function Question({
   score,
   nextQuestion,
   questionCounter,
+  questionsQuantity,
 }) {
   const [answers, setAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
@@ -22,28 +23,23 @@ function Question({
   // combines the correct answer with the array of wrong answers and shuffle them
 
   const checkAnswer = (e) => {
+    const difficultyScores = { easy: 10, medium: 30, hard: 50 };
     if (e.target.innerText === correct_answer) {
-      e.target.className = 'btn btn-lg btn-success';
-      switch (difficulty) {
-        case 'easy':
-          setScore(score + 10);
-          break;
-        case 'medium':
-          setScore(score + 30);
-          break;
-        case 'hard':
-          setScore(score + 50);
-          break;
-        default:
-          break;
-      }
+      e.target.classList.add('btn-success');
+      e.target.classList.remove('btn-outline-info');
+      //e.target.className = 'btn btn-lg btn-success';
+      setScore(score + difficultyScores[difficulty]);
     } else {
       // show the clicked answer red
-      e.target.className = 'btn btn-lg btn-danger';
+      e.target.classList.add('btn-danger');
+      e.target.classList.remove('btn-outline-info');
+      //e.target.className = 'btn btn-lg btn-danger';
       // search for the right answer and display green
       e.target.parentNode.childNodes.forEach((answer) => {
         if (answer.innerText === correct_answer) {
-          answer.className = 'btn btn-lg btn-success';
+          answer.classList.add('btn-success');
+          answer.classList.remove('btn-outline-info');
+          //answer.className = 'btn btn-lg btn-success';
         }
       });
     }
@@ -64,7 +60,7 @@ function Question({
             variant='outline-info'
             size='lg'
             disabled={clicked}
-            key={index}
+            key={`answers-${index}`}
             onClick={(e) => {
               checkAnswer(e);
               setClicked(true);
@@ -81,7 +77,7 @@ function Question({
           disabled={!clicked}
           onClick={nextQuestion}
         >
-          {questionCounter === 9 ? 'Finish!' : 'Next'}
+          {questionCounter === questionsQuantity - 1 ? 'Finish!' : 'Next'}
         </Button>
       </div>
     </div>

@@ -23,7 +23,7 @@ function Highscores({ highscores }) {
           <tbody>
             {highscores.map((entry, index) => {
               return (
-                <tr key={index}>
+                <tr key={`highscores-${index}`}>
                   <td scope='row'>{index + 1}</td>
                   <td>{entry.name}</td>
                   <td>{entry.score}</td>

@@ -35,7 +35,7 @@ function Quiz() {
     },
     {
       name: 'Hanna',
-      score: 60,
+      score: 20,
       date: '2021/08/01',
     },
   ]);
@@ -90,7 +90,7 @@ function Quiz() {
           <StartPage start={start} setDifficulty={setDifficulty} />
 
           {/* only after the quiz show the score */}
-          {isFinished ? (
+          {isFinished && (
             <div className='row justify-content-center m-5'>
               <div className='col-auto border border-warning rounded p-3 bg-info'>
                 <h2 className='text-center text-warning'>
@@ -98,7 +98,7 @@ function Quiz() {
                 </h2>
               </div>
             </div>
-          ) : null}
+          )}
 
           {/* show if it's a new highscore */}
           {isFinished && newHighscore ? (
@@ -129,11 +129,13 @@ function Quiz() {
                 </div>
               </div>
             </div>
-          ) : isFinished ? (
-            <h2 className='text-center text-info'>
-              You missed the top ten :&#40;{' '}
-            </h2>
-          ) : null}
+          ) : (
+            isFinished && (
+              <h2 className='text-center text-info'>
+                You missed the top ten :&#40;{' '}
+              </h2>
+            )
+          )}
 
           {/* show highscores before and after the quiz */}
           <Highscores highscores={highscores} />
