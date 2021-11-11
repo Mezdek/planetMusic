@@ -21,16 +21,19 @@ function Highscores({ highscores }) {
             </tr>
           </thead>
           <tbody>
-            {highscores.map((entry, index) => {
-              return (
-                <tr key={`highscores-${index}`}>
-                  <td scope='row'>{index + 1}</td>
-                  <td>{entry.name}</td>
-                  <td>{entry.score}</td>
-                  <td>{entry.date}</td>
-                </tr>
-              );
-            })}
+            {highscores
+              .sort((a, b) => b.score - a.score)
+              .slice(0, 10)
+              .map((entry, index) => {
+                return (
+                  <tr key={`highscores-${index}`}>
+                    <td scope='row'>{index + 1}</td>
+                    <td>{entry.name}</td>
+                    <td>{entry.score}</td>
+                    <td>{entry.date}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>

@@ -6,45 +6,29 @@ import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import Button from 'react-bootstrap/Button';
 import './quiz.css';
+import axios from 'axios';
 
 function Quiz() {
   const [difficulty, setDifficulty] = useState('');
   const [quizStart, setQuizStart] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
-  const [highscores, setHighscores] = useState([
-    {
-      name: 'Susi',
-      score: 300,
-      date: '2021/08/23',
-    },
-    {
-      name: 'Tom',
-      score: 150,
-      date: '2021/09/12',
-    },
-    {
-      name: 'Maggy',
-      score: 80,
-      date: '2021/08/09',
-    },
-    {
-      name: 'Tony',
-      score: 60,
-      date: '2021/08/05',
-    },
-    {
-      name: 'Hanna',
-      score: 20,
-      date: '2021/08/01',
-    },
-  ]);
+  const [highscores, setHighscores] = useState([]);
   const [newHighscore, setNewHighscore] = useState(false);
   const [name, setName] = useState('');
 
   useEffect(() => {
+    axios
+      .get('/quiz/scores')
+      .then((response) => setHighscores(response.data[0]))
+      .catch((err) => console.log(err));
+  }, [newHighscore]);
+
+  useEffect(() => {
     // compare score with highscores and add it to the list, sorted by points and dates
-    if (score > highscores[highscores.length - 1].score) {
+    // not yet sorting by date
+    // 9 hardcoded because limit to 10 entries in db not yet set (need a delete if more than 10)
+    if (highscores.length < 10 || score > highscores[9].score) {
       setNewHighscore(true);
     }
   }, [isFinished]);
@@ -63,18 +47,18 @@ function Quiz() {
       score: score,
       date: format(Date.now(), 'yyyy/MM/dd'),
     };
-    const newArray = [...highscores, newObj];
-    const sortedArray = newArray.sort((a, b) => b.score - a.score);
-    if (sortedArray.length > 5) {
-      sortedArray.pop();
-    }
-    setHighscores(sortedArray);
+
+    axios
+      .post('/quiz/scores', newObj)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+
     setNewHighscore(false);
     setIsFinished(false);
   };
 
   return (
-    <Container fluid='md' className='quiz-main-container mt-5'>
+    <Container fluid='md' className='mt-5'>
       {/* show questions as long as the quiz is started and not finished */}
       {quizStart && !isFinished ? (
         <Questions

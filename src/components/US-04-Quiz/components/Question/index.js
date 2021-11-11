@@ -72,13 +72,14 @@ function Question({
         </p>
       </div>
       <h3 className='text-center'>{question}</h3>
-      <div className='d-grid gap-2 mt-5'>
+      <div className='mt-5'>
         {answers.map((item, index) => (
           <Button
             variant={
               item === correct_answer && outOfTime ? 'success' : 'outline-info'
             }
             size='lg'
+            className='mb-2 d-block w-75 m-auto'
             disabled={clicked || outOfTime}
             key={`answers-${index}`}
             onClick={(e) => {
