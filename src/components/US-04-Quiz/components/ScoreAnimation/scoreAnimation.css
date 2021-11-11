@@ -1,0 +1,41 @@
+.score-animation-container {
+  position: relative;
+}
+
+.score-animation {
+  position: absolute;
+  width: 200px;
+  top: -3rem;
+  left: 50%;
+  margin-left: -100px;
+  font-size: 2rem;
+  font-weight: 700;
+  animation-duration: 2s;
+  animation-name: flash;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flash {
+  from {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    color: cadetblue;
+  }
+
+  50% {
+    transform: scale(1.2, 1.2);
+    color: darkblue;
+  }
+
+  80% {
+    opacity: 1;
+    color: cadetblue;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

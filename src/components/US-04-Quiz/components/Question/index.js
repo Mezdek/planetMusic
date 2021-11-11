@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
+import ScoreAnimation from '../ScoreAnimation';
 
 function Question({
   question,
@@ -26,6 +27,7 @@ function Question({
 
   useEffect(() => {
     // countdown starts onMount and continues until clicked=true
+    // problem: when clicked at 25s it still counts to 24 before stopping
     countdown > 0 &&
       !clicked &&
       setTimeout(() => setCountdown(countdown - 1), 1000);
@@ -37,7 +39,9 @@ function Question({
     if (e.target.innerText === correct_answer) {
       e.target.classList.add('btn-success');
       e.target.classList.remove('btn-outline-info');
-      setScore(score + difficultyScores[difficulty]);
+
+      // set the score
+      setScore(score + difficultyScores[difficulty] * countdown);
     } else {
       // show the clicked answer red
       e.target.classList.add('btn-danger');
@@ -57,10 +61,16 @@ function Question({
         <p>Difficulty: {difficulty}</p>
         <p>Question {questionCounter + 1}/10</p>
       </div>
-      <h2 className='text-center mb-5'>Score: {score}</h2>
-      <h1 className='text-center mb-5'>
-        {outOfTime ? 'Time is up!' : `${countdown} seconds left`}
-      </h1>
+      <ScoreAnimation score={score} />
+      {/* <h2 className='text-center mb-5'>Score: {score}</h2> */}
+      <div
+        className='badge rounded-circle bg-secondary m-auto mb-5 d-flex justify-content-center align-items-center'
+        style={{ width: '100px', height: '100px' }}
+      >
+        <p className='m-0 text-wrap fs-4'>
+          {outOfTime ? 'Time is up!' : `${countdown} s`}
+        </p>
+      </div>
       <h3 className='text-center'>{question}</h3>
       <div className='d-grid gap-2 mt-5'>
         {answers.map((item, index) => (
