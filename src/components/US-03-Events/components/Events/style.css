@@ -1,6 +1,6 @@
 .singleEventWrapper{
     background-color: rgba(34, 170, 211, 0.281);
-    width: 30%;
+    width: 24rem;
     height: 180px;
     border: 2px solid rgb(253, 154, 232);
     border-radius: 25px;
@@ -13,11 +13,20 @@
     /* text-align: center; */
     color: rgb(5, 70, 70);
     font-weight: 700;
-    font-size: 1vw;
+    font-size: 0.9rem;
     text-decoration: none;
-    background-image: url("./pexels-gradienta-7130541.jpg");
+    background-image: url("../../images/pexels-gradienta-7130541.jpg");
     background-size: 150%;
     background-blend-mode:soft-light;
+}
+
+@media screen and (max-width:480px) {
+    .singleEventWrapper{
+        width: 16rem;
+        height: 8rem;
+        margin-bottom: 3%;
+        font-size: 0.65rem;
+    }
 }
 
 .singleEventWrapper:hover{
@@ -40,9 +49,15 @@
     width: 9vw;
     height: 70%;
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    
+}
+
+@media screen and (max-width: 480px) {
+    .eventImg{
+        margin: 0 3%;
+        width: 5rem;
+        height: 70%;
+        display: flex;
+    }
 }
 
 #eventImg{

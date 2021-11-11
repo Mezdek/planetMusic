@@ -64,7 +64,7 @@ function FinalEvent() {
         <Container>
         <div className="allElementsContainer">
           <div className="introductionBackground">
-          <h1 className="pageIntro">MUSIC EVENTS IN GERMANY:</h1>
+          <h1 className="pageIntro">MUSIC EVENTS IN GERMANY</h1>
               <SearchBarEvents 
               searchCategories={searchCategories}
               selectedSearchCategory={selectedSearchCategory} 

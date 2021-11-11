@@ -1,5 +1,5 @@
-body{
-
+html, body{
+    width: 100vw;
 }
 
 .allElementsContainer{
@@ -19,25 +19,50 @@ body{
     justify-content: space-around;
     margin-bottom: 2%;
     margin-top: 3%;
+    border: 0.5rem double black;
+    box-shadow: 3px 5px rgba(189, 189, 189, 0.514);
+    background-image: url("./images/pexels-gradienta-6985045.jpg");
+    padding-top: 1.5rem;
+    background-size: 100%;
+}
+
+@media screen and (max-width: 480px){
+    .allEventsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }
 
 .pageIntro{
-    font-weight: 900;
+    font-weight: 800;
     font-size: 4rem;
-    color: rgb(75, 37, 65);
-    text-shadow: 2px 3px rgb(238, 168, 234);
+    background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(116, 22, 223), rgb(248, 255, 154) );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-shadow: 1px 1px 2px rgb(73, 20, 62), 0 0 1em rgb(0, 217, 255), 0 0 0.2em rgb(0, 140, 255); */
     margin-bottom: 2%;
     text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media screen and (max-width: 480px) {
+    .pageIntro{
+        font-size: 2rem;  
+    }
 }
 
 .introductionBackground{
     width: 100vw;
-    height: 450px;
-    background-image: url("./components/Events/pexels-gradienta-7130486.jpg");
-    background-size: 100%;
+    height: 30rem;
+    background-image: url("./images/abstract-gce8bfeb33_1920.jpg");
+    background-position:top;
+    background-size: cover;
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+

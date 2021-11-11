@@ -22,12 +22,12 @@ export default function SearchBarEvents(props) {
 
             {(selectedSearchCategory == searchCategories[0]) ? "" : ""}
             {(selectedSearchCategory == searchCategories[1]) ? 
-            <input placeholder="search by city" className="inputSearchCategory" value={selectedCity} onChange={(event)=>setSelectedCity(event.target.value)} ></input> : ""}
+            <input placeholder="provide the city" className="inputSearchCategory" value={selectedCity} onChange={(event)=>setSelectedCity(event.target.value)} ></input> : ""}
             {(selectedSearchCategory == searchCategories[2]) ? 
             (<><input placeholder="Start Date yyyy-mm-dd" className="inputSearchCategory" type="date" required pattern="\d{4}-\d{2}-\d{2}" value={selectedStartDate} onChange={(event)=>setSelectedStartDate(event.target.value)}>
-                </input> <input placeholder="End Date yyyy-mm-dd" type="date" equired pattern="\d{4}-\d{2}-\d{2}" value={selectedEndDate} onChange={(event)=>setSelectedEndDate(event.target.value)} ></input> </>) : ""}
+                </input> <input className="inputSearchCategory" placeholder="End Date yyyy-mm-dd" type="date" equired pattern="\d{4}-\d{2}-\d{2}" value={selectedEndDate} onChange={(event)=>setSelectedEndDate(event.target.value)} ></input> </>) : ""}
             {(selectedSearchCategory == searchCategories[3]) ? 
-            <input placeholder="search by keyword" className="inputSearchCategory"  value={selectedKeyword} onChange={(event)=>setSelectedKeyword(event.target.value)}></input>: ""}
+            <input placeholder="provide the keyword" className="inputSearchCategory"  value={selectedKeyword} onChange={(event)=>setSelectedKeyword(event.target.value)}></input>: ""}
 
             <button className="searchByCategoryButton" onClick={()=>setSearchButton(!searchButton)}>Search</button>
 

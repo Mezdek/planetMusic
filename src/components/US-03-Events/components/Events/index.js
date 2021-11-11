@@ -15,6 +15,5 @@ export default function Event(props) {
                 <img id="eventImg" src={imgUrl} alt="not displayed"/>
             </div>
         </a>
-        
     )
 }
