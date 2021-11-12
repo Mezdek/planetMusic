@@ -1,0 +1,9 @@
+
+.articleShort{
+    width:80%;
+    border: solid 1px;
+    padding: 5px;
+    margin: 0 auto 15px;
+    box-shadow: 5px 5px 10px silver;
+    text-align: center;
+}
