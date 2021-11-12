@@ -1,6 +1,10 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
 html, body{
     width: 100vw;
-
+    background: -webkit-linear-gradient(#141638, #0c0c20, #181944, rgb(238, 233, 255) );
+    min-height: 1000px;
 }
 
 .allElementsContainer{
@@ -22,10 +26,10 @@ html, body{
     /* border: 0.5rem double black; */
     /* box-shadow: 3px 5px rgba(189, 189, 189, 0.514); */
     /* background-image: url("./images/illustration-gf5c6ec0c0_640.jpg"); */
-    box-shadow: 0 0 10px 10px white inset;
+    /* box-shadow: 0 0 10px 10px white inset; */
     background-size: 100%;
     padding: 2.5rem 1.5rem 0.5rem 1.5rem;
-    background: -webkit-linear-gradient(rgb(201, 120, 255), rgb(252, 224, 255), rgb(248, 255, 154) );
+    /* background: -webkit-linear-gradient(rgb(201, 120, 255), rgb(252, 224, 255), rgb(248, 255, 154) ); */
     /* background-size: 100%; */
     background-position:bottom;
 }
@@ -40,15 +44,16 @@ html, body{
 }
 
 .pageIntro{
-    font-weight: 800;
+    /* font-weight: 800; */
     font-size: 4rem;
-    background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(116, 22, 223), rgb(248, 255, 154) );
+    background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(158, 14, 115), rgb(154, 235, 255) );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* text-shadow: 1px 1px 2px rgb(73, 20, 62), 0 0 1em rgb(0, 217, 255), 0 0 0.2em rgb(0, 140, 255); */
+    font-family: 'Bowlby One SC';
+    /* font-family: 'Work Sans', sans-serif; */
+                /* text-shadow: 1px 1px 2px rgb(73, 20, 62), 0 0 1em rgb(0, 217, 255), 0 0 0.2em rgb(0, 140, 255); */
     margin-bottom: 2%;
     text-align: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 @media screen and (max-width: 480px) {
@@ -60,7 +65,7 @@ html, body{
 .introductionBackground{
     width: 100vw;
     height: 30rem;
-    background-image: url("./images/abstract-gce8bfeb33_1920.jpg");
+    background-image: url("../../images/abstract-gce8bfeb33_1920.jpg");
     background-position:top;
     background-size: cover;
     margin: 0;

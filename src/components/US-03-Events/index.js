@@ -19,10 +19,10 @@ function FinalEvent() {
   
   const [selectedSearchCategory, setSelectedSearchCategory] = React.useState(searchCategories[0])
   const [selectedCity, setSelectedCity] = React.useState('')
-  const [searchButton, setSearchButton] = React.useState(!false)
+  const [searchButton, setSearchButton] = React.useState(true)
 
-  const [selectedStartDate, setSelectedStartDate] = React.useState('providetodaydate')
-  const [selectedEndDate, setSelectedEndDate] = React.useState('providetodaydate')
+  const [selectedStartDate, setSelectedStartDate] = React.useState(Date.now())
+  const [selectedEndDate, setSelectedEndDate] = React.useState(Date.now())
   const [selectedKeyword, setSelectedKeyword] = React.useState('')
 
     React.useEffect(

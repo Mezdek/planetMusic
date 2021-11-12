@@ -14,7 +14,7 @@
     font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;
-    background-image: url("../../images/pexels-gradienta-7130541.jpg");
+    background-color: aliceblue;
     background-size: 150%;
     background-blend-mode:soft-light;
 
@@ -30,8 +30,7 @@
 }
 
 .singleEventWrapper:hover{
-    background-color: rgba(105, 5, 163, 0.733);
-    
+    background-color: #571857;
 }
 
 .eventDescription{
@@ -45,6 +44,10 @@
     justify-content: center;
     font-weight: 600;
     /* text-align: center; */
+}
+
+.eventDescription:hover{
+    color:white;
 }
 
 .eventImg{
