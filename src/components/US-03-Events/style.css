@@ -1,5 +1,6 @@
 html, body{
     width: 100vw;
+
 }
 
 .allElementsContainer{
@@ -7,7 +8,6 @@ html, body{
     flex-direction: column;
     align-items: center;
     width: 100%;
-
 }
 
 .allEventsContainer{
@@ -18,12 +18,16 @@ html, body{
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 2%;
-    margin-top: 3%;
-    border: 0.5rem double black;
-    box-shadow: 3px 5px rgba(189, 189, 189, 0.514);
-    background-image: url("./images/pexels-gradienta-6985045.jpg");
-    padding-top: 1.5rem;
+    margin-top: 1%;
+    /* border: 0.5rem double black; */
+    /* box-shadow: 3px 5px rgba(189, 189, 189, 0.514); */
+    /* background-image: url("./images/illustration-gf5c6ec0c0_640.jpg"); */
+    box-shadow: 0 0 10px 10px white inset;
     background-size: 100%;
+    padding: 2.5rem 1.5rem 0.5rem 1.5rem;
+    background: -webkit-linear-gradient(rgb(201, 120, 255), rgb(252, 224, 255), rgb(248, 255, 154) );
+    /* background-size: 100%; */
+    background-position:bottom;
 }
 
 @media screen and (max-width: 480px){

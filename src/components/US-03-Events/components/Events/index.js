@@ -6,9 +6,9 @@ export default function Event(props) {
     return (
         <a key={index} className="singleEventWrapper" href={eventUrl}>
             <div className="eventDescription" >
-                <p>city name: {cityName}</p>
-                <p>event name: {eventName}</p>
-                <p>event dates: {eventDate}</p>
+                <p className="eventDescriptionParagraph"><b>EVENT:</b> {eventName}</p>
+                <p className="eventDescriptionParagraph"><b>CITY:</b> {cityName}</p>
+                <p className="eventDescriptionParagraph"><b>DATE:</b> {eventDate}</p>
   
             </div>
             <div className="eventImg">

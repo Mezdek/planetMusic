@@ -16,3 +16,9 @@
     font-weight: 700;
     box-sizing:border-box;
 }
+
+.buttonStyle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -61,7 +61,6 @@ function FinalEvent() {
 
 
       return (
-        <Container>
         <div className="allElementsContainer">
           <div className="introductionBackground">
           <h1 className="pageIntro">MUSIC EVENTS IN GERMANY</h1>
@@ -81,6 +80,7 @@ function FinalEvent() {
               setSelectedEndDate={setSelectedEndDate}
               />
             </div>
+          <Container>
           <div className ="allEventsContainer">
           {
           allEvents.slice(0, visible).map((event, index)=>{
@@ -102,8 +102,8 @@ function FinalEvent() {
             setVisible={setVisible}
             />
           </div>
+        </Container>
         </div>
-      </Container>
       );
     }
     
