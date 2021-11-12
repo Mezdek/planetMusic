@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React, { useState, useEffect } from 'react'
 import ArticleCard from './components/ArticleCard'
@@ -45,3 +46,12 @@ export default function HotTracks() {
     }
     
 
+=======
+function HotTracks() {
+  return(
+    <h1>Hot Tracks</h1>
+  )
+}
+
+export default HotTracks;
+>>>>>>> 8c8d4a64d0fbd337f6358c20e31d2516a5b46262
