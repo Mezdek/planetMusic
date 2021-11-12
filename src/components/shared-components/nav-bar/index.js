@@ -1,31 +1,38 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
-import logo from "./images/logo.png"
+import logo from './images/logo.png';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function NavBar() {
   return (
-    <Navbar bg='dark' variant='dark'>
+    <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
       <Container>
-        <Navbar.Brand href='#home' ><img src={logo} style={{width:"100px"}} alt="logo"/></Navbar.Brand>
-        <Nav className='me-auto'>
-          <Nav.Link>
-            <Link to='/' style={{color:"white"}} >Home</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to='/hot_tracks' style={{color:"white"}}>Hot Tracks</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to='/random_playlist' style={{color:"white"}}>Random Playlist</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to='/events' style={{color:"white"}}>Events</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to='/quiz' style={{color:"white"}}>Quiz</Link>
-          </Nav.Link>
-        </Nav>
+        <LinkContainer to='/' exact>
+          <Navbar.Brand>
+            <img src={logo} style={{ width: '100px' }} alt='logo' />
+          </Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+        <Navbar.Collapse id='responsive-navbar-nav'>
+          <Nav className='me-auto'>
+            <LinkContainer to='/' exact>
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/news'>
+              <Nav.Link>News</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/playlist'>
+              <Nav.Link>Playlist</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/events'>
+              <Nav.Link>Events</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/quiz'>
+              <Nav.Link>Quiz</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
