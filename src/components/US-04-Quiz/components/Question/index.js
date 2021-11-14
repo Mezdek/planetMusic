@@ -56,7 +56,7 @@ function Question({
   };
 
   return (
-    <div>
+    <div className='bg-light rounded p-3'>
       <div className='d-flex justify-content-between'>
         <p>Difficulty: {difficulty}</p>
         <p>Question {questionCounter + 1}/10</p>
