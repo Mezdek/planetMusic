@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 import HomePage from './components/home-page';
 import News from './components/US-01-HotTracks';
@@ -18,13 +19,42 @@ function App() {
   const [loginPassword, setLoginPassword] = useState('');
   const [registerName, setRegisterName] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   const login = () => {
-    console.log('login');
+    axios
+      .post('/login', { name: loginName, password: loginPassword })
+      .then((response) => {
+        if (response.data.message) {
+          setMessage(response.data.message);
+        }
+        if (response.data.error) {
+          setMessage('Sorry, something went wrong');
+          console.log(response.data.error);
+        }
+      })
+      .catch((err) => {
+        setMessage('Sorry, something went wrong');
+        console.log(err);
+      });
   };
 
   const register = () => {
-    console.log('register');
+    axios
+      .post('/register', { name: registerName, password: registerPassword })
+      .then((response) => {
+        if (response.data.message) {
+          setMessage(response.data.message);
+        }
+        if (response.data.error) {
+          setMessage('Sorry, something went wrong');
+          console.log(response.data.error);
+        }
+      })
+      .catch((err) => {
+        setMessage('Sorry, something went wrong');
+        console.log(err);
+      });
   };
 
   return (
@@ -59,6 +89,8 @@ function App() {
               setName={setLoginName}
               setPassword={setLoginPassword}
               login={login}
+              message={message}
+              setMessage={setMessage}
             />
           </Route>
           <Route path='/register'>
@@ -70,6 +102,8 @@ function App() {
               setName={setRegisterName}
               setPassword={setRegisterPassword}
               register={register}
+              message={message}
+              setMessage={setMessage}
             />
           </Route>
         </Switch>

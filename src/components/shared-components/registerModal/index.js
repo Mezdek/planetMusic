@@ -10,11 +10,14 @@ function RegisterModal({
   password,
   setPassword,
   register,
+  message,
+  setMessage,
 }) {
   const handleClose = () => {
     setShow(false);
     setName('');
     setPassword('');
+    setMessage('');
   };
 
   return (
@@ -38,6 +41,7 @@ function RegisterModal({
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {message && <h5>{message}</h5>}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
@@ -47,7 +51,6 @@ function RegisterModal({
             variant='primary'
             onClick={() => {
               register();
-              handleClose();
             }}
           >
             Save
