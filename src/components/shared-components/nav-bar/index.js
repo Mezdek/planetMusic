@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import logo from './images/logo.png';
 import { LinkContainer } from 'react-router-bootstrap';
 
-function NavBar() {
+function NavBar({ setLoginModal, setRegisterModal }) {
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
       <Container>
@@ -12,6 +12,16 @@ function NavBar() {
           <Navbar.Brand>
             <img src={logo} style={{ width: '100px' }} alt='logo' />
           </Navbar.Brand>
+        </LinkContainer>
+        <LinkContainer to='/login' exact onClick={() => setLoginModal(true)}>
+          <Nav.Link>Log in</Nav.Link>
+        </LinkContainer>
+        <LinkContainer
+          to='/register'
+          exact
+          onClick={() => setRegisterModal(true)}
+        >
+          <Nav.Link>Sign up</Nav.Link>
         </LinkContainer>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
