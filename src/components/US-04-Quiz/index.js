@@ -58,7 +58,7 @@ function Quiz() {
   };
 
   return (
-    <Container fluid='md' className='mt-5'>
+    <Container fluid='md' className='mt-4'>
       {/* show questions as long as the quiz is started and not finished */}
       {quizStart && !isFinished ? (
         <Questions
@@ -76,7 +76,7 @@ function Quiz() {
           {/* only after the quiz show the score */}
           {isFinished && (
             <div className='row justify-content-center m-5'>
-              <div className='col-auto border border-warning rounded p-3 bg-info'>
+              <div className='col-auto border border-warning rounded p-3 bg-dark'>
                 <h2 className='text-center text-warning'>
                   You reached {score} points!
                 </h2>
@@ -103,10 +103,7 @@ function Quiz() {
                     />
                   </div>
                   <div className='col p-0 col-auto'>
-                    <Button
-                      variant='outline-success'
-                      onClick={saveNewHighscore}
-                    >
+                    <Button variant='secondary' onClick={saveNewHighscore}>
                       Save
                     </Button>
                   </div>

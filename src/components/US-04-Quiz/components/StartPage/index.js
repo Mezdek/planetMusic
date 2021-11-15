@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import bgImage from '../../../../images/abstract-gce8bfeb33_1920.jpg';
+import bgImage from '../../../../images/intro-background.png';
 
 function StartPage({ start, setDifficulty }) {
   const [selected, setSelected] = useState('');
@@ -11,17 +11,17 @@ function StartPage({ start, setDifficulty }) {
         <img src={bgImage} alt='' className='quiz-hero-image-img' />
       </div>
 
-      <div className='w-50 m-auto rounded-circle quiz-description'>
-        <p className='m-0 mt-3'>Answer 10 questions to test your knowledge!</p>
+      <div className='m-auto rounded-circle quiz-description'>
+        <p className='m-0'>10 questions to test your music knowledge!</p>
         <p className='m-0 mb-3'>
-          The faster you answer the more point you'll get - harder questions
-          bring get higher scores!
+          The faster you answer the more points you'll get - harder questions
+          bring higher scores!
         </p>
       </div>
 
       <h1 className='quiz-intro-heading'>Music Quiz Challenge</h1>
 
-      <div className='bright-background w-50 m-auto quiz-difficulty-select'>
+      <div className='bright-background w-50 mt-5 py-2 m-auto quiz-difficulty-select'>
         <div className='row justify-content-center align-items-center mt-4'>
           <div className='col-auto'>
             <h4>Select a difficulty</h4>
@@ -44,7 +44,7 @@ function StartPage({ start, setDifficulty }) {
         <div className='row justify-content-center'>
           <div className='col-mx-auto col-auto'>
             <Button
-              variant='outline-success'
+              variant='dark'
               size='lg'
               className='d-block mt-3 mb-2'
               onClick={() => {
