@@ -17,10 +17,6 @@ function App() {
   const [registerModal, setRegisterModal] = useState(false);
   const [inputName, setInputName] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-  // const [loginName, setLoginName] = useState('');
-  // const [loginPassword, setLoginPassword] = useState('');
-  // const [registerName, setRegisterName] = useState('');
-  // const [registerPassword, setRegisterPassword] = useState('');
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [userId, setUserId] = useState('');
