@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -15,8 +14,6 @@ function LoginModal({
 }) {
   const handleClose = () => {
     setShow(false);
-    setName('');
-    setPassword('');
     setMessage('');
   };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import HomePage from './components/home-page';
@@ -20,6 +20,22 @@ function App() {
   const [registerName, setRegisterName] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
+  const checkLogin = () => {
+    axios.get('/login').then((response) => {
+      if (response.data.loggedIn) {
+        console.log(response.data);
+        setUserName(response.data.userName);
+        setUserId(response.data.userId);
+      }
+    });
+  };
 
   const login = () => {
     axios
@@ -27,6 +43,9 @@ function App() {
       .then((response) => {
         if (response.data.message) {
           setMessage(response.data.message);
+          if (response.data.loggedIn) {
+            checkLogin();
+          }
         }
         if (response.data.error) {
           setMessage('Sorry, something went wrong');
@@ -46,6 +65,12 @@ function App() {
         if (response.data.message) {
           setMessage(response.data.message);
         }
+        if (response.data.userCreated) {
+          console.log(response.data);
+          setLoginName(registerName);
+          setLoginPassword(registerPassword);
+          login();
+        }
         if (response.data.error) {
           setMessage('Sorry, something went wrong');
           console.log(response.data.error);
@@ -57,12 +82,32 @@ function App() {
       });
   };
 
+  const logout = () => {
+    axios
+      .get('/logout')
+      .then((response) => {
+        if (response.data.sessionDestroyed) {
+          console.log('logout', response.data);
+          setUserName('');
+          setUserId('');
+          setLoginName('');
+          setLoginPassword('');
+          setRegisterName('');
+          setRegisterPassword('');
+          checkLogin();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <BrowserRouter>
       <div className='App'>
         <Navbar
           setLoginModal={setLoginModal}
           setRegisterModal={setRegisterModal}
+          userName={userName}
+          logout={logout}
         />
         <Switch>
           <Route exact path='/'>
