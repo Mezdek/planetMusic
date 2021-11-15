@@ -15,18 +15,14 @@ function NavBar({ setLoginModal, setRegisterModal, userName, logout }) {
           </Navbar.Brand>
         </LinkContainer>
         {!userName && (
-          <LinkContainer to='/login' exact onClick={() => setLoginModal(true)}>
-            <Nav.Link>Log in</Nav.Link>
-          </LinkContainer>
+          <Button variant='dark' onClick={() => setLoginModal(true)}>
+            Login
+          </Button>
         )}
         {!userName && (
-          <LinkContainer
-            to='/register'
-            exact
-            onClick={() => setRegisterModal(true)}
-          >
-            <Nav.Link>Sign up</Nav.Link>
-          </LinkContainer>
+          <Button variant='dark' onClick={() => setRegisterModal(true)}>
+            Sign up
+          </Button>
         )}
 
         {userName && (

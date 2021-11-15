@@ -15,10 +15,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 function App() {
   const [loginModal, setLoginModal] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
-  const [loginName, setLoginName] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  const [registerName, setRegisterName] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
+  const [inputName, setInputName] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
+  // const [loginName, setLoginName] = useState('');
+  // const [loginPassword, setLoginPassword] = useState('');
+  // const [registerName, setRegisterName] = useState('');
+  // const [registerPassword, setRegisterPassword] = useState('');
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [userId, setUserId] = useState('');
@@ -39,7 +41,7 @@ function App() {
 
   const login = () => {
     axios
-      .post('/login', { name: loginName, password: loginPassword })
+      .post('/login', { name: inputName, password: inputPassword })
       .then((response) => {
         if (response.data.message) {
           setMessage(response.data.message);
@@ -60,15 +62,13 @@ function App() {
 
   const register = () => {
     axios
-      .post('/register', { name: registerName, password: registerPassword })
+      .post('/register', { name: inputName, password: inputPassword })
       .then((response) => {
         if (response.data.message) {
           setMessage(response.data.message);
         }
         if (response.data.userCreated) {
           console.log(response.data);
-          setLoginName(registerName);
-          setLoginPassword(registerPassword);
           login();
         }
         if (response.data.error) {
@@ -90,10 +90,8 @@ function App() {
           console.log('logout', response.data);
           setUserName('');
           setUserId('');
-          setLoginName('');
-          setLoginPassword('');
-          setRegisterName('');
-          setRegisterPassword('');
+          setInputName('');
+          setInputPassword('');
           checkLogin();
         }
       })
@@ -108,6 +106,28 @@ function App() {
           setRegisterModal={setRegisterModal}
           userName={userName}
           logout={logout}
+        />
+        <RegisterModal
+          show={registerModal}
+          setShow={setRegisterModal}
+          name={inputName}
+          password={inputPassword}
+          setName={setInputName}
+          setPassword={setInputPassword}
+          register={register}
+          message={message}
+          setMessage={setMessage}
+        />
+        <LoginModal
+          show={loginModal}
+          setShow={setLoginModal}
+          name={inputName}
+          password={inputPassword}
+          setName={setInputName}
+          setPassword={setInputPassword}
+          login={login}
+          message={message}
+          setMessage={setMessage}
         />
         <Switch>
           <Route exact path='/'>
@@ -124,32 +144,6 @@ function App() {
           </Route>
           <Route path='/quiz'>
             <Quiz />
-          </Route>
-          <Route path='/login'>
-            <LoginModal
-              show={loginModal}
-              setShow={setLoginModal}
-              name={loginName}
-              password={loginPassword}
-              setName={setLoginName}
-              setPassword={setLoginPassword}
-              login={login}
-              message={message}
-              setMessage={setMessage}
-            />
-          </Route>
-          <Route path='/register'>
-            <RegisterModal
-              show={registerModal}
-              setShow={setRegisterModal}
-              name={registerName}
-              password={registerPassword}
-              setName={setRegisterName}
-              setPassword={setRegisterPassword}
-              register={register}
-              message={message}
-              setMessage={setMessage}
-            />
           </Route>
         </Switch>
       </div>
