@@ -144,7 +144,7 @@ function App() {
             <FinalEvent />
           </Route>
           <Route path='/quiz'>
-            <Quiz />
+            <Quiz loggedInUser={userName} />
           </Route>
         </Switch>
       </div>

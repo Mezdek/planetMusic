@@ -24,7 +24,7 @@ function NavBar({ setLoginModal, setRegisterModal, userName, logout }) {
             style={{ color: '#b2edef' }}
             onClick={() => setLoginModal(true)}
           >
-            Login
+            Log in
           </Button>
         )}
         {!userName && (

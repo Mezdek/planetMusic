@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import './quiz.css';
 import axios from 'axios';
 
-function Quiz() {
+function Quiz({ loggedInUser }) {
   const [difficulty, setDifficulty] = useState('');
   const [quizStart, setQuizStart] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
@@ -43,7 +43,7 @@ function Quiz() {
 
   const saveNewHighscore = () => {
     const newObj = {
-      name: name,
+      name: loggedInUser || name,
       score: score,
       date: format(Date.now(), 'yyyy/MM/dd'),
     };
@@ -91,23 +91,38 @@ function Quiz() {
                 <h2 className='text-center text-info'>
                   This is a new Highscore!
                 </h2>
-                <div className='row justify-content-center align-items-center'>
-                  <div className='col p-0 col-auto'>
-                    <input
-                      className='form-control my-1'
-                      type='text'
-                      id='highscore-input'
-                      placeholder='Please enter your name...'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
+                {!loggedInUser && (
+                  <div className='row justify-content-center align-items-center'>
+                    <div className='col p-0 col-auto'>
+                      <input
+                        className='form-control my-1'
+                        type='text'
+                        id='highscore-input'
+                        placeholder='Please enter your name...'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className='col p-0 col-auto'>
+                      <Button variant='secondary' onClick={saveNewHighscore}>
+                        Save
+                      </Button>
+                    </div>
                   </div>
-                  <div className='col p-0 col-auto'>
-                    <Button variant='secondary' onClick={saveNewHighscore}>
-                      Save
-                    </Button>
+                )}
+                {loggedInUser && (
+                  <div className='row justify-content-center align-items-center'>
+                    <div className='col p-0 col-auto'>
+                      <Button
+                        variant='secondary'
+                        size='lg'
+                        onClick={saveNewHighscore}
+                      >
+                        Save
+                      </Button>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           ) : (
