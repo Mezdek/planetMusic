@@ -11,23 +11,37 @@ function NavBar({ setLoginModal, setRegisterModal, userName, logout }) {
       <Container>
         <LinkContainer to='/' exact>
           <Navbar.Brand>
-            <img src={logo} style={{ width: '100px' }} alt='logo' />
+            <img
+              src={logo}
+              style={{ width: '100px', marginRight: '3rem' }}
+              alt='logo'
+            />
           </Navbar.Brand>
         </LinkContainer>
         {!userName && (
-          <Button variant='dark' onClick={() => setLoginModal(true)}>
+          <Button
+            variant='dark'
+            style={{ color: '#b2edef' }}
+            onClick={() => setLoginModal(true)}
+          >
             Login
           </Button>
         )}
         {!userName && (
-          <Button variant='dark' onClick={() => setRegisterModal(true)}>
+          <Button
+            variant='dark'
+            style={{ color: '#b2edef' }}
+            onClick={() => setRegisterModal(true)}
+          >
             Sign up
           </Button>
         )}
 
         {userName && (
-          <div className='text-light rounded-circle border border-light p-2 text-center'>
-            <p className='p-0 m-0'>Hi {userName}</p>
+          <div className='rounded-circle border border-light p-2 text-center'>
+            <p className='p-0 m-0' style={{ color: '#ff66c4' }}>
+              Hi {userName}
+            </p>
           </div>
         )}
         {userName && (
@@ -36,7 +50,10 @@ function NavBar({ setLoginModal, setRegisterModal, userName, logout }) {
           </Button>
         )}
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-        <Navbar.Collapse id='responsive-navbar-nav'>
+        <Navbar.Collapse
+          id='responsive-navbar-nav'
+          style={{ marginLeft: '5rem' }}
+        >
           <Nav className='me-auto'>
             <LinkContainer to='/' exact>
               <Nav.Link>Home</Nav.Link>

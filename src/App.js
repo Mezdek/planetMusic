@@ -31,6 +31,11 @@ function App() {
         console.log(response.data);
         setUserName(response.data.userName);
         setUserId(response.data.userId);
+        setRegisterModal(false);
+        setLoginModal(false);
+        setMessage('');
+        setInputName('');
+        setInputPassword('');
       }
     });
   };
