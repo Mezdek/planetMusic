@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+/* 
+#b2edef blue
+#ff66c4 pink
+*/
+body {
+  width: 100vw;
+  background: -webkit-linear-gradient(
+    #141638,
+    #0c0c20,
+    #181944,
+    rgb(238, 233, 255)
+  );
+}
+
+.quiz-description,
+.quiz-intro-heading,
+.quiz-difficulty-select,
+.quiz-highscores-container {
+  position: relative;
+  z-index: 3;
+}
+
+.quiz-description {
+  width: 300px;
+}
+
+.quiz-hero-image-div {
+  position: absolute;
+  top: 74.6px;
+  left: 0;
+  height: 30rem;
+  width: 100vw;
+  z-index: 2;
+}
+
+.quiz-hero-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quiz-intro-heading {
+  font-family: 'Sigmar One', cursive;
+  font-weight: 800;
+  font-size: 4rem;
+  padding-bottom: 2rem;
+  background: -webkit-linear-gradient(
+    rgb(239, 159, 253),
+    rgb(158, 14, 115),
+    rgb(154, 235, 255)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 3px rgb(30, 3, 32));
+}
+
+.bright-background {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.575);
+}
