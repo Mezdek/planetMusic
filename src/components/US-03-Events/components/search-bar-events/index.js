@@ -27,9 +27,8 @@ export default function SearchBarEvents(props) {
                 </input> <input className="inputSearchCategory" placeholder="End Date yyyy-mm-dd" type="date" equired pattern="\d{4}-\d{2}-\d{2}" value={selectedEndDate} onChange={(event)=>setSelectedEndDate(event.target.value)} ></input> </>) : null}
             {(selectedSearchCategory == searchCategories[3]) ? 
             <input placeholder="provide the keyword" className="inputSearchCategory"  value={selectedKeyword} onChange={(event)=>setSelectedKeyword(event.target.value)}></input>: null}
-
-            <button className="searchByCategoryButton" onClick={()=>setSearchButton(!searchButton)}>Search</button>
-
+           
+            <button className="searchByCategoryButton" onClick={()=>setSearchButton(!searchButton)}><b>Search</b></button>
         </div>
     )
 }
