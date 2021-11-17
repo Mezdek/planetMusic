@@ -8,7 +8,7 @@ function HomePageNews() {
         <Link to="/news" style={{ textDecoration: 'none', color: "rgb(33, 37, 41)" }}>
         <p className="homePageBoxTitle">Gravity <br/> News</p>
         <div className="gifBoxContainer">
-        <img src={news}/>
+        <img src={news} alt="GravityNews"/>
         </div>
       </Link>
       </div>

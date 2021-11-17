@@ -8,7 +8,7 @@ function HomePageHotTracks() {
       <Link to="/playlist" style={{ textDecoration: 'none', color: "rgb(33, 37, 41)" }}>
       <p className="homePageBoxTitle">Galactic <br/> Playlist</p>
       <div className="gifBoxContainer">
-      <img src={HotTracks}/>
+      <img src={HotTracks} alt="GalacticPlaylist"/>
       </div>
       </Link>
     </div>

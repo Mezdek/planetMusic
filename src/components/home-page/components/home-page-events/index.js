@@ -8,7 +8,7 @@ function HomePageEvents() {
       <Link to="/events" style={{ textDecoration: 'none', color: "rgb(33, 37, 41)" }}>
       <p className="homePageBoxTitle">Cosmic <br/> Events</p>
       <div className="gifBoxContainer">
-      <img src={EventImg}/>
+      <img src={EventImg} alt="CosmicEvents"/>
       </div>
       </Link>
     </div>

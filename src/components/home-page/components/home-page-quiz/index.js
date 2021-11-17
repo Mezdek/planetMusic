@@ -8,7 +8,7 @@ function HomePageQuiz() {
       <Link to="/quiz" style={{ textDecoration: 'none', color: "rgb(33, 37, 41)" }}>
       <p className="homePageBoxTitle">Rocket <br/> Quiz</p>
       <div className="gifBoxContainer">
-      <img src={QuizImg}/>
+      <img src={QuizImg} alt="RocketQuiz"/>
       </div>
       </Link>
     </div>

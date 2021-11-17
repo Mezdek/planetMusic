@@ -20,7 +20,7 @@ export default function Event(props) {
 
             <div className="favorite" value={isFavorite} onClick={() => handleClickFavorite(!isFavorite)}>
                 
-            {isFavorite == false ?
+            {isFavorite === false ?
                 <div className="notFavorite"></div> : 
                 <div className="isFavorite"></div>
             }
