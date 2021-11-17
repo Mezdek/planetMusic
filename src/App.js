@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 import './App.css';
 import HomePage from './components/home-page';
@@ -11,6 +11,8 @@ import LoginModal from './components/shared-components/loginModal';
 import RegisterModal from './components/shared-components/registerModal';
 // import Footer from './components/shared-components/footer'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+export const MainContext = createContext();
 
 function App() {
   const [loginModal, setLoginModal] = useState(false);
@@ -100,55 +102,57 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className='App'>
-        <Navbar
-          setLoginModal={setLoginModal}
-          setRegisterModal={setRegisterModal}
-          userName={userName}
-          logout={logout}
-        />
-        <RegisterModal
-          show={registerModal}
-          setShow={setRegisterModal}
-          name={inputName}
-          password={inputPassword}
-          setName={setInputName}
-          setPassword={setInputPassword}
-          register={register}
-          message={message}
-          setMessage={setMessage}
-        />
-        <LoginModal
-          show={loginModal}
-          setShow={setLoginModal}
-          name={inputName}
-          password={inputPassword}
-          setName={setInputName}
-          setPassword={setInputPassword}
-          login={login}
-          message={message}
-          setMessage={setMessage}
-        />
-        <Switch>
-          <Route exact path='/'>
-            <HomePage />
-          </Route>
-          <Route path='/news'>
-            <News />
-          </Route>
-          <Route path='/playlist'>
-            <Playlist />
-          </Route>
-          <Route path='/events'>
-            <FinalEvent />
-          </Route>
-          <Route path='/quiz'>
-            <Quiz loggedInUser={userName} />
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <MainContext.Provider value={{ userName, userId }}>
+      <BrowserRouter>
+        <div className='App'>
+          <Navbar
+            setLoginModal={setLoginModal}
+            setRegisterModal={setRegisterModal}
+            // userName={userName}
+            logout={logout}
+          />
+          <RegisterModal
+            show={registerModal}
+            setShow={setRegisterModal}
+            name={inputName}
+            password={inputPassword}
+            setName={setInputName}
+            setPassword={setInputPassword}
+            register={register}
+            message={message}
+            setMessage={setMessage}
+          />
+          <LoginModal
+            show={loginModal}
+            setShow={setLoginModal}
+            name={inputName}
+            password={inputPassword}
+            setName={setInputName}
+            setPassword={setInputPassword}
+            login={login}
+            message={message}
+            setMessage={setMessage}
+          />
+          <Switch>
+            <Route exact path='/'>
+              <HomePage />
+            </Route>
+            <Route path='/news'>
+              <News />
+            </Route>
+            <Route path='/playlist'>
+              <Playlist />
+            </Route>
+            <Route path='/events'>
+              <FinalEvent />
+            </Route>
+            <Route path='/quiz'>
+              <Quiz />
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </MainContext.Provider>
   );
 }
 

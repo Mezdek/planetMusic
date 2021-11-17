@@ -1,11 +1,15 @@
+import { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import logo from './images/logo.png';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { MainContext } from '../../../App';
 
-function NavBar({ setLoginModal, setRegisterModal, userName, logout }) {
+function NavBar({ setLoginModal, setRegisterModal, logout }) {
+  const { userName } = useContext(MainContext);
+
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
       <Container>

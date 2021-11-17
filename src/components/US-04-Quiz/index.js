@@ -2,13 +2,14 @@ import Container from 'react-bootstrap/Container';
 import StartPage from './components/StartPage';
 import Questions from './components/Questions';
 import Highscores from './components/Highscores';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { format } from 'date-fns';
 import Button from 'react-bootstrap/Button';
 import './quiz.css';
 import axios from 'axios';
+import { MainContext } from '../../App';
 
-function Quiz({ loggedInUser }) {
+function Quiz() {
   const [difficulty, setDifficulty] = useState('');
   const [quizStart, setQuizStart] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
@@ -16,6 +17,7 @@ function Quiz({ loggedInUser }) {
   const [highscores, setHighscores] = useState([]);
   const [newHighscore, setNewHighscore] = useState(false);
   const [name, setName] = useState('');
+  const { userName } = useContext(MainContext);
 
   useEffect(() => {
     axios
@@ -43,7 +45,7 @@ function Quiz({ loggedInUser }) {
 
   const saveNewHighscore = () => {
     const newObj = {
-      name: loggedInUser || name,
+      name: userName || name,
       score: score,
       date: format(Date.now(), 'yyyy/MM/dd'),
     };
@@ -91,7 +93,7 @@ function Quiz({ loggedInUser }) {
                 <h2 className='text-center text-info'>
                   This is a new Highscore!
                 </h2>
-                {!loggedInUser && (
+                {!userName && (
                   <div className='row justify-content-center align-items-center'>
                     <div className='col p-0 col-auto'>
                       <input
@@ -110,7 +112,7 @@ function Quiz({ loggedInUser }) {
                     </div>
                   </div>
                 )}
-                {loggedInUser && (
+                {userName && (
                   <div className='row justify-content-center align-items-center'>
                     <div className='col p-0 col-auto'>
                       <Button
