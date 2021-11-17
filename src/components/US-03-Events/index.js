@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Event from './components/Events'
 import MoreEventsButton from './components/MoreEventsButton'
 import './style.css'
@@ -9,63 +9,20 @@ function FinalEvent() {
   
   const [allEvents, setEvents] = React.useState([])
   const [visible, setVisible] = React.useState(6)
+  const [data, setData] = React.useState([]);
 
-
-    const searchCategories = [
-      "",
-      "Location",
-      "Date", 
-      "Keyword"
-    ] 
-  
-  const [selectedSearchCategory, setSelectedSearchCategory] = React.useState(searchCategories[0])
-  const [selectedCity, setSelectedCity] = React.useState('')
-  const [searchButton, setSearchButton] = React.useState(true)
-
-  const [selectedStartDate, setSelectedStartDate] = React.useState(Date.now())
-  const [selectedEndDate, setSelectedEndDate] = React.useState(Date.now())
-  const [selectedKeyword, setSelectedKeyword] = React.useState('')
-
-    React.useEffect(
-      ()=>{
-        const url = new URL("https://app.ticketmaster.com/discovery/v2/events.json")
-        url.searchParams.append("countryCode", "DE")
-        url.searchParams.append("apikey", "3HsiJ0SglnkQTD4lRtIkQqVgI5i9kB8z")
-        url.searchParams.append("size", "200")
-        url.searchParams.append("sort", "date,asc")
-        url.searchParams.append("classificationName", "Music")
-
-        //if selectedCity string is not empty(which evaluates to true), and selectedSearchCategory is selected, return all the events with applied filter
-        if(selectedSearchCategory == searchCategories[1] && selectedCity !== "") {
-          url.searchParams.append("city", selectedCity)
-        }
-
-        if(selectedSearchCategory == searchCategories[2] && selectedStartDate !== "" && selectedEndDate !== "") {
-          url.searchParams.append("startDateTime", `${selectedStartDate}T00:00:00Z`)
-          url.searchParams.append("endDateTime", `${selectedEndDate}T23:59:59Z`)
-        }
-
-        if(selectedSearchCategory == searchCategories[3] && selectedKeyword !== "") {
-          url.searchParams.append("keyword", selectedKeyword)
-        }
-
-        fetch(url.href)
-        .then((response)=>{return response.json()})
-        .then((response)=>{
-          setEvents(response._embedded.events)
-        })
-        .catch((err) => {
-          console.log('Not able to fetch API data', err)
-        })
-      },[selectedSearchCategory, searchButton])
-    
-
+    useEffect(() => {
+      fetch("http://localhost:3003/events")
+          .then(response => {return response.json()})
+          .then((data) => {setData(data)})
+          .catch(error => console.error('Unable to get items.', error));
+    }, []);
 
       return (
         <div className="allElementsContainer">
           <div className="introductionBackground">
           <h1 className="pageIntro">MUSIC EVENTS IN GERMANY</h1>
-              <SearchBarEvents 
+              {/* <SearchBarEvents 
               searchCategories={searchCategories}
               selectedSearchCategory={selectedSearchCategory} 
               setSelectedSearchCategory={setSelectedSearchCategory}
@@ -79,20 +36,20 @@ function FinalEvent() {
               setSelectedStartDate={setSelectedStartDate}
               selectedEndDate={selectedEndDate}
               setSelectedEndDate={setSelectedEndDate}
-              />
+              /> */}
             </div>
           <Container>
           <div className ="allEventsContainer">
           {
-          allEvents.slice(0, visible).map((event, index)=>{
+          data.slice(0, visible).map((event, index)=>{
             return (
             <Event
-              key={`event.id-${index}`} 
-              cityName={event._embedded.venues[0].city.name}
-              eventName={event.name}
-              eventDate={event.dates.start.localDate}
-              imgUrl={event.images[0].url}
-              eventUrl={event.url}
+              eventKey={event.eventKey}
+              cityName={event.cityName}
+              eventName={event.eventName}
+              eventDate={event.eventDate}
+              imgUrl={event.imgUrl}
+              eventUrl={event.eventUrl}
               />)
           })
         } </div>
