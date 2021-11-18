@@ -1,10 +1,74 @@
-.showMoreEventsButton{
-    margin-top: 10px;
-    margin-left: 400px;
-    width: 250px;
-    font-size: 25px;
-    font-weight: 800;
-    border-radius: 20px;
-    background-color: rgb(9, 104, 128);
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+html, body{
+    width: 100vw;
+    background: -webkit-linear-gradient(#141638, #0c0c20, #181944, rgb(238, 233, 255) );
+    min-height: 1000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.allElementsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.allEventsContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    background-size: 100%;
+    padding: 2.5rem 1.5rem 0.5rem 1.5rem;
+    background-position:bottom;
+}
+
+@media screen and (max-width: 480px){
+    .allEventsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.pageIntro{
+    font-size: 4rem;
+    background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(158, 14, 115), rgb(154, 235, 255) );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(3px 3px rgb(30, 3, 32));
+    font-family: 'Sigmar One', cursive; 
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .pageIntro{
+        font-size: 2.5rem;  
+    }
+}
+
+.introductionBackground{
+    width: 100vw;
+    height: 28rem;
+    background-image: url("../../images/intro-background.png");
+    background-position:top;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+    .introductionBackground{
+        height: 20rem;
+    }
 }

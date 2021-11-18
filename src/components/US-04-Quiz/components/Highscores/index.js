@@ -1,6 +1,6 @@
 function Highscores({ highscores }) {
   return (
-    <div className='row justify-content-center mt-3'>
+    <div className='row justify-content-center mt-5 w-50 m-auto bright-background quiz-highscores-container'>
       <div className='col-auto text-center'>
         <h2>Highscores</h2>
         <table className='table table-hover'>
@@ -21,16 +21,19 @@ function Highscores({ highscores }) {
             </tr>
           </thead>
           <tbody>
-            {highscores.map((entry, index) => {
-              return (
-                <tr key={`highscores-${index}`}>
-                  <td scope='row'>{index + 1}</td>
-                  <td>{entry.name}</td>
-                  <td>{entry.score}</td>
-                  <td>{entry.date}</td>
-                </tr>
-              );
-            })}
+            {highscores
+              .sort((a, b) => b.score - a.score)
+              .slice(0, 10)
+              .map((entry, index) => {
+                return (
+                  <tr key={`highscores-${index}`}>
+                    <td scope='row'>{index + 1}</td>
+                    <td>{entry.name}</td>
+                    <td>{entry.score}</td>
+                    <td>{entry.date}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>

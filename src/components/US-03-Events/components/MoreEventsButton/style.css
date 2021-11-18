@@ -1,5 +1,36 @@
+.showMoreEventsButton{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    background: -webkit-linear-gradient(rgba(178, 163, 233, 0.788), pink);
+    margin-bottom:1rem;
+
+    /* make it glow */
+    outline:none;
+    border: 1px solid rgb(120, 163, 237); 
+    /* create a BIG glow */
+    box-shadow: 0px 0px 20px #4195fc; 
+    -moz-box-shadow: 0px 0px 20px #4195fc;
+    -webkit-box-shadow: 0px 0px 20px #4195fc; 
+}
+
+.showMoreEventsButton:hover{
+
+    -webkit-border-radius: 2rem;
+       -moz-border-radius: 2rem;
+            border-radius: 3rem;
+
+    border: 2px solid #9E1577;
+    outline:none;
+    border: 1px solid #9E1577; 
+    box-shadow: 0px 0px 20px #9E1577; 
+    -moz-box-shadow: 0px 0px 20px #9E1577;
+    -webkit-box-shadow: 0px 0px 20px #9E1577; 
+}
+
 .buttonStyle{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
+

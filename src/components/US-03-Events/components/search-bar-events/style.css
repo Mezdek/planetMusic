@@ -1,0 +1,94 @@
+.searchBarContainer{
+    display: flex;
+    width: 70vw;
+    height: 2.5rem;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .searchBarContainer{
+        display: flex;
+        flex-direction: column;
+        height: 12rem;
+        width: 60vw;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        margin-top: 0.5rem;
+
+    }
+}
+
+.inputSearchCategory{
+    margin: 0 2%;
+    border: none;
+    box-shadow: 3px 3px rgb(238, 168, 234);
+    background-color: aliceblue;
+}
+
+@media screen and (max-width: 500px){
+    .inputSearchCategory{
+        margin-bottom: 0.3rem;
+    }
+}
+
+
+.searchByLabel{
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    padding-right: 0.9rem;
+    text-align: center;
+    font-weight: 900;
+    color: rgb(230, 212, 252);
+    text-shadow: 2px 2px rgb(10, 10, 10);
+}
+
+@media screen and (max-width: 480px) {
+.searchByLabel{
+    /* margin: 0 2%;
+    text-align: center;
+    font-size: 0.9rem; */
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+}
+
+.searchByCategoryButton{
+    width: 7rem;
+
+    border-radius: 3rem;
+    border: none;
+    background: -webkit-linear-gradient(rgba(178, 163, 233), #C251B2);
+
+    margin-right: 1rem;
+
+}
+
+.searchByCategoryButton:hover{
+    -webkit-border-radius: 2rem;
+       -moz-border-radius: 2rem;
+            border-radius: 3rem;
+
+    border: 2px solid #9E1577;
+    outline:none;
+    border: 1px solid #9E1577; 
+    box-shadow: 0px 0px 20px #9E1577; 
+    -moz-box-shadow: 0px 0px 20px #9E1577;
+    -webkit-box-shadow: 0px 0px 20px #9E1577; 
+    margin-right: 1rem;
+
+}
+
+.selectCategoryOption{
+    width: 7rem;
+    border: none;
+    box-shadow: 3px 3px rgb(238, 168, 234);
+    background-color: aliceblue;
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .selectCategoryOption{
+        margin-bottom: 0.5rem;}
+    }
