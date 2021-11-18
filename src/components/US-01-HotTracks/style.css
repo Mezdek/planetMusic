@@ -1,7 +1,13 @@
-.trackContainer{ width:80%;
+.articleContainer{ 
+    width:80%;
     display: flex;
-    margin: 0 auto 5px;
-    border: 1solid;
+    
 
 }
 h2{text-align: center;}
+
+html, body{
+    width: 100vw;
+    background: -webkit-linear-gradient(#141638, #0C0C20, #181944, rgb(238, 233, 255) );
+    min-height: 1000px;
+    }
