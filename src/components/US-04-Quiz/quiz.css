@@ -66,6 +66,7 @@ body {
 
 @media (max-width: 460px) {
   .quiz-intro-heading {
+    padding-top: 1.5rem;
     font-size: 3.2rem;
   }
   .quiz-difficulty-select,

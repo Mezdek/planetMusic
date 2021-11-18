@@ -1,6 +1,6 @@
 function Highscores({ highscores }) {
   return (
-    <div className='row justify-content-center m-auto  quiz-highscores-container'>
+    <div className='row justify-content-center mx-auto pt-2 quiz-highscores-container'>
       <div className='col-md-6 text-center'>
         <h2>Highscores</h2>
         <table className='table table-hover'>
