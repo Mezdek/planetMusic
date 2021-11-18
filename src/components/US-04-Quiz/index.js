@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import StartPage from './components/StartPage';
 import Questions from './components/Questions';
 import Highscores from './components/Highscores';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { format } from 'date-fns';
 import Button from 'react-bootstrap/Button';
 import './quiz.css';
 import axios from 'axios';
+import { MainContext } from '../../App';
 
 function Quiz() {
   const [difficulty, setDifficulty] = useState('');
@@ -16,6 +17,7 @@ function Quiz() {
   const [highscores, setHighscores] = useState([]);
   const [newHighscore, setNewHighscore] = useState(false);
   const [name, setName] = useState('');
+  const { userName } = useContext(MainContext);
 
   useEffect(() => {
     axios
@@ -43,7 +45,7 @@ function Quiz() {
 
   const saveNewHighscore = () => {
     const newObj = {
-      name: name,
+      name: userName || name,
       score: score,
       date: format(Date.now(), 'yyyy/MM/dd'),
     };
@@ -75,7 +77,7 @@ function Quiz() {
 
           {/* only after the quiz show the score */}
           {isFinished && (
-            <div className='row justify-content-center m-5'>
+            <div className='row justify-content-center m-4'>
               <div className='col-auto border border-warning rounded p-3 bg-dark'>
                 <h2 className='text-center text-warning'>
                   You reached {score} points!
@@ -86,28 +88,43 @@ function Quiz() {
 
           {/* show if it's a new highscore */}
           {isFinished && newHighscore ? (
-            <div className='row justify-content-center m-5'>
+            <div className='row justify-content-center m-4'>
               <div>
                 <h2 className='text-center text-info'>
                   This is a new Highscore!
                 </h2>
-                <div className='row justify-content-center align-items-center'>
-                  <div className='col p-0 col-auto'>
-                    <input
-                      className='form-control my-1'
-                      type='text'
-                      id='highscore-input'
-                      placeholder='Please enter your name...'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
+                {!userName && (
+                  <div className='row justify-content-center align-items-center'>
+                    <div className='col p-0 col-auto'>
+                      <input
+                        className='form-control my-1'
+                        type='text'
+                        id='highscore-input'
+                        placeholder='Please enter your name...'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className='col p-0 col-auto'>
+                      <Button variant='secondary' onClick={saveNewHighscore}>
+                        Save
+                      </Button>
+                    </div>
                   </div>
-                  <div className='col p-0 col-auto'>
-                    <Button variant='secondary' onClick={saveNewHighscore}>
-                      Save
-                    </Button>
+                )}
+                {userName && (
+                  <div className='row justify-content-center align-items-center'>
+                    <div className='col p-0 col-auto'>
+                      <Button
+                        variant='secondary'
+                        size='lg'
+                        onClick={saveNewHighscore}
+                      >
+                        Save
+                      </Button>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           ) : (
