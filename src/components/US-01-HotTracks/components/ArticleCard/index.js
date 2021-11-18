@@ -1,11 +1,11 @@
 import React, {useState, useEffect}from 'react'
 import './style.css'
 import ArticleContent from'../ArticleContent'
-import Axios from 'Axios'
+//import Axios from 'Axios'
 
 
-export default function ArticleCard(props) {
-    const  {index,title, creator,description, content} = props;
+export default function ArticleCard({index,title, creator,description, content}) {
+    
     const [contentExist, setContentExist] = useState(false);
     const [showContent, setShowContent]= useState(false);
     const [isFavorite, handleClickFavorite] = useState(false); 
@@ -27,13 +27,13 @@ export default function ArticleCard(props) {
             <div key={index} className="articleShort">
                 <div>
                     <h3>{title}</h3>
-                     <div className="favorite" value={isFavorite} onClick={safeArticle}>
+                     <div className="favorite" value={isFavorite} onClick={ () =>handleClickFavorite(!isFavorite)}>
                 
-                    {isFavorite === false ?
-                    <div className="notFavorite"></div> : 
-                    <div className="isFavorite"></div>
-                }
-                </div>
+                        {isFavorite === false ?
+                        <div className="notFavorite"></div> : 
+                        <div className="isFavorite"></div>
+                        }
+                    </div>  
                     <h5>{creator}</h5>
                   
                     
