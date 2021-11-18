@@ -77,7 +77,7 @@ function Quiz() {
 
           {/* only after the quiz show the score */}
           {isFinished && (
-            <div className='row justify-content-center m-5'>
+            <div className='row justify-content-center m-4'>
               <div className='col-auto border border-warning rounded p-3 bg-dark'>
                 <h2 className='text-center text-warning'>
                   You reached {score} points!
@@ -88,7 +88,7 @@ function Quiz() {
 
           {/* show if it's a new highscore */}
           {isFinished && newHighscore ? (
-            <div className='row justify-content-center m-5'>
+            <div className='row justify-content-center m-4'>
               <div>
                 <h2 className='text-center text-info'>
                   This is a new Highscore!

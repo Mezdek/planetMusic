@@ -29,7 +29,7 @@ function App() {
 
   const checkLogin = () => {
     axios.get('/login').then((response) => {
-      if (response.data.loggedIn) {
+      if (response.status === 200) {
         console.log(response.data);
         setUserName(response.data.userName);
         setUserId(response.data.userId);
@@ -46,15 +46,15 @@ function App() {
     axios
       .post('/login', { name: inputName, password: inputPassword })
       .then((response) => {
-        if (response.data.message) {
+        if (response.status === 200) {
           setMessage(response.data.message);
           if (response.data.loggedIn) {
             checkLogin();
           }
         }
-        if (response.data.error) {
-          setMessage('Sorry, something went wrong');
-          console.log(response.data.error);
+        if (response.status === 400 || 401) {
+          setMessage(response.data.message);
+          console.log(response.data?.error);
         }
       })
       .catch((err) => {
@@ -67,15 +67,12 @@ function App() {
     axios
       .post('/register', { name: inputName, password: inputPassword })
       .then((response) => {
-        if (response.data.message) {
+        if (response.status === 200) {
           setMessage(response.data.message);
-        }
-        if (response.data.userCreated) {
-          console.log(response.data);
           login();
         }
-        if (response.data.error) {
-          setMessage('Sorry, something went wrong');
+        if ((response.status === 400) | 401) {
+          setMessage(response.data.message);
           console.log(response.data.error);
         }
       })
@@ -89,7 +86,7 @@ function App() {
     axios
       .get('/logout')
       .then((response) => {
-        if (response.data.sessionDestroyed) {
+        if (response.status === 200) {
           console.log('logout', response.data);
           setUserName('');
           setUserId('');
@@ -108,7 +105,6 @@ function App() {
           <Navbar
             setLoginModal={setLoginModal}
             setRegisterModal={setRegisterModal}
-            // userName={userName}
             logout={logout}
           />
           <RegisterModal

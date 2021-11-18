@@ -6,6 +6,7 @@ import logo from './images/logo.png';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { MainContext } from '../../../App';
+import './nav.css';
 
 function NavBar({ setLoginModal, setRegisterModal, logout }) {
   const { userName } = useContext(MainContext);
@@ -15,11 +16,7 @@ function NavBar({ setLoginModal, setRegisterModal, logout }) {
       <Container>
         <LinkContainer to='/' exact>
           <Navbar.Brand>
-            <img
-              src={logo}
-              style={{ width: '100px', marginRight: '3rem' }}
-              alt='logo'
-            />
+            <img src={logo} alt='logo' />
           </Navbar.Brand>
         </LinkContainer>
         {!userName && (
@@ -56,9 +53,9 @@ function NavBar({ setLoginModal, setRegisterModal, logout }) {
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse
           id='responsive-navbar-nav'
-          style={{ marginLeft: '5rem' }}
+          className='nav-container-collapse'
         >
-          <Nav className='me-auto'>
+          <Nav className='me-auto nav-collapse'>
             <LinkContainer to='/' exact>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
