@@ -1,22 +1,34 @@
+
+import React from 'react'
 import './style.css'
 
 
 export default function SearchArticle(props) {
-   return (
-    <div className="searchBarContainer">
+   const {searchValue,setSearchValue,searchButton,setSearchButton}=props;
+   /* const display = (e) => {
+        e.preventDefault();
+        console.log(searchValue);}*/
+    return (
+     
 
-        <label htmlFor ="searchValue">Search for Artist</label>
+    <div className="introductionBackground">
+        <p>Some Music News for you</p>
+        <div className="searchBarContainer">
+
+            <label htmlFor ="searchValue">Search for Artist</label>
+            
+            <input 
+            type="text" 
+            id = "searchValue" 
+            name= "searchValue"     
+            value={searchValue}
+            onChange={(event)=>{
+                setSearchValue(event.target.value)
+            }}
+            />
+            <button className="searchButton" onClick={()=> {setSearchButton(!searchButton)}}>Search</button>
         
-        <input 
-        type="text" 
-        id = "searchValue" 
-        name= "searchVAlue"     
-        value={props.searchValue}
-        onChange={(event)=>{
-            props.setSearchValue(event.target.value)
-        }}
-        />
-        
+        </div>
     </div>
    )
 

@@ -1,4 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap'); 
 .searchBarContainer {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+label {
+    margin-right: 5px;
+    }
+
+.introductionBackground{
+    width: 100vw;
+    height: 28rem;
+    background-image: url("../../../../images/intro-background.png");
+    background-position:top;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
     text-align: center;
-    margin-bottom: 5px;}
-label {margin-right: 5px;}
+    justify-content: center;
+    margin-bottom: 20px;
+    }
+    .introductionBackground p{
+        font-size: 4rem;
+        background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(158, 14, 115), rgb(154, 235, 255) );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(3px 3px rgb(30, 3, 32));
+        font-family: 'Sigmar One', cursive;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .introductionBackground label{
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        text-align: center;
+        font-weight: 900;
+        color: rgb(230, 212, 252);
+        text-shadow: 2px 2px rgb(10, 10, 10);
+        margin: 0;
+    }
+
+    .introductionBackground input{
+        width: 30%;
+        margin-bottom: 0.5rem;
+    }
+    .searchButton{
+        width: 6rem;
+        font-weight: 700;
+    
+        border-radius: 3rem;
+        border: none;
+        background: -webkit-linear-gradient(rgba(178, 163, 233), #C251B2);
+
+    
+    }
+    
+    .searchButton:hover{
+        -webkit-border-radius: 2rem;
+           -moz-border-radius: 2rem;
+                border-radius: 3rem;
+    
+        border: 2px solid #9E1577;
+        outline:none;
+        border: 1px solid #9E1577; 
+        box-shadow: 0px 0px 20px #9E1577; 
+        -moz-box-shadow: 0px 0px 20px #9E1577;
+        -webkit-box-shadow: 0px 0px 20px #9E1577; 
+    
+    }
+
+    @media screen and (max-width: 500px){
+        .introductionBackground p{
+            font-size:2rem;
+        }
+        .introductionBackground input{
+            width: 60%;
+        }
+        .introductionBackground{
+            height: 20rem;
+            }
+        
+        }

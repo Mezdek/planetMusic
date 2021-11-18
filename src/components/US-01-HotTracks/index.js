@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 import React, { useState, useEffect } from 'react'
 import ArticleCard from './components/ArticleCard'
@@ -7,29 +6,46 @@ import './style.css'
 
 
 export default function HotTracks() {
+  const [searchValue, setSearchValue] = useState("");
+  const [searchButton, setSearchButton]= useState (false);
 
    const key= "pub_209372810a042a82b26699a3eba51ed7ef6c";
-  
+   const url = `https://magical-it-works.jsrover.wilders.dev/https://newsdata.io/api/1/news?apikey=${key}&language=en&q=music`
+   const urlSeacrh = `https://magical-it-works.jsrover.wilders.dev/https://newsdata.io/api/1/news?apikey=${key}&language=en&q=music%20AND%20${searchValue}`
+    
+    
+
     const [data, setData] = useState([]);
     
-        useEffect(()=>{
-        console.log("here")
-            fetch(`https://magical-it-works.jsrover.wilders.dev/https://newsdata.io/api/1/news?apikey=${key}&language=en&q=music%20AND%20police`)
-            
+        useEffect(()=>{fetch(url)
             .then((response)=> response.json())
             .then((response)=>setData(response.results))
             .catch((err)=> console.log(err));
-            
-            
           },[])
+          useEffect(()=>{
+            if (searchButton ===!false){fetch(urlSeacrh)
+              
+              .then((response)=> response.json())
+              .then((response)=>{
+                setData(response.results);
+                setSearchButton(false);
+              })
+               
+              .catch((err)=> console.log(err));
+              }
+          
+       },[searchButton])
         
     
     
           return (
             <div className="articleOverview">
                 {console.log(data)}
-              <h2>Some News</h2>
-              <SearchArticle/>
+              <SearchArticle
+              searchValue={searchValue}
+              setSearchValue= {setSearchValue}
+              searchButton ={searchButton}
+              setSearchButton = {setSearchButton}/>
                 {data.map((results, index) =>(
                   <ArticleCard
                    key={index}
@@ -46,12 +62,3 @@ export default function HotTracks() {
     }
     
 
-=======
-function HotTracks() {
-  return(
-    <h1>Hot Tracks</h1>
-  )
-}
-
-export default HotTracks;
->>>>>>> 8c8d4a64d0fbd337f6358c20e31d2516a5b46262
