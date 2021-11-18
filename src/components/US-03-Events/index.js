@@ -10,6 +10,7 @@ function FinalEvent() {
   const [allEvents, setEvents] = React.useState([])
   const [visible, setVisible] = React.useState(6)
 
+
     const searchCategories = [
       "",
       "Location",
@@ -35,16 +36,16 @@ function FinalEvent() {
         url.searchParams.append("classificationName", "Music")
 
         //if selectedCity string is not empty(which evaluates to true), and selectedSearchCategory is selected, return all the events with applied filter
-        if(selectedSearchCategory == searchCategories[1] && selectedCity !== "") {
+        if(selectedSearchCategory === searchCategories[1] && selectedCity !== "") {
           url.searchParams.append("city", selectedCity)
         }
 
-        if(selectedSearchCategory == searchCategories[2] && selectedStartDate !== "" && selectedEndDate !== "") {
+        if(selectedSearchCategory === searchCategories[2] && selectedStartDate !== "" && selectedEndDate !== "") {
           url.searchParams.append("startDateTime", `${selectedStartDate}T00:00:00Z`)
           url.searchParams.append("endDateTime", `${selectedEndDate}T23:59:59Z`)
         }
 
-        if(selectedSearchCategory == searchCategories[3] && selectedKeyword !== "") {
+        if(selectedSearchCategory === searchCategories[3] && selectedKeyword !== "") {
           url.searchParams.append("keyword", selectedKeyword)
         }
 
@@ -86,7 +87,7 @@ function FinalEvent() {
           allEvents.slice(0, visible).map((event, index)=>{
             return (
             <Event
-              key={index} 
+              key={`event.id-${index}`} 
               cityName={event._embedded.venues[0].city.name}
               eventName={event.name}
               eventDate={event.dates.start.localDate}
