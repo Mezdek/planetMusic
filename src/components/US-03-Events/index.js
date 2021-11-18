@@ -6,10 +6,12 @@ import Container from 'react-bootstrap/Container';
 import SearchBarEvents from './components/search-bar-events';
 
 function FinalEvent() {
-  
+
   const [allEvents, setEvents] = React.useState([])
   const [visible, setVisible] = React.useState(6)
   const [data, setData] = React.useState([]);
+
+  
 
     useEffect(() => {
       fetch("http://localhost:3003/events")
@@ -22,7 +24,7 @@ function FinalEvent() {
         <div className="allElementsContainer">
           <div className="introductionBackground">
           <h1 className="pageIntro">MUSIC EVENTS IN GERMANY</h1>
-              {/* <SearchBarEvents 
+              <SearchBarEvents 
               searchCategories={searchCategories}
               selectedSearchCategory={selectedSearchCategory} 
               setSelectedSearchCategory={setSelectedSearchCategory}
@@ -36,7 +38,7 @@ function FinalEvent() {
               setSelectedStartDate={setSelectedStartDate}
               selectedEndDate={selectedEndDate}
               setSelectedEndDate={setSelectedEndDate}
-              /> */}
+              />
             </div>
           <Container>
           <div className ="allEventsContainer">
