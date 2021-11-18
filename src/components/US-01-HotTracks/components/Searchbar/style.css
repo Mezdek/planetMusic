@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap'); 
-.searchBarContainer {   
+.searchBarContainerArticle {   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@ label {
     margin-right: 5px;
     }
 
-.introductionBackground{
+.introductionBackgroundArticle{
     width: 100vw;
     height: 28rem;
     background-image: url("../../../../images/intro-background.png");
@@ -20,7 +20,7 @@ label {
     justify-content: center;
     margin-bottom: 20px;
     }
-    .introductionBackground p{
+    .introductionBackgroundArticle p{
         font-size: 4rem;
         background: -webkit-linear-gradient(rgb(239, 159, 253), rgb(158, 14, 115), rgb(154, 235, 255) );
         -webkit-background-clip: text;
@@ -31,7 +31,7 @@ label {
         text-align: center;
     }
 
-    .introductionBackground label{
+    .introductionBackgroundArticle label{
         display: flex;
         align-items: center;
         font-size: 1.1rem;
@@ -42,7 +42,7 @@ label {
         margin: 0;
     }
 
-    .introductionBackground input{
+    .introductionBackgroundArticle input{
         width: 30%;
         margin-bottom: 0.5rem;
     }
@@ -72,14 +72,18 @@ label {
     }
 
     @media screen and (max-width: 500px){
-        .introductionBackground p{
+        .introductionBackgroundArticle p{
             font-size:2rem;
         }
-        .introductionBackground input{
+        .introductionBackgroundArticle input{
             width: 60%;
         }
-        .introductionBackground{
+        .introductionBackgroundArticle{
             height: 20rem;
             }
+        h3{font-size: 1rem;
+        font-size: 600;}
+        h5{font-size:0.8rem;}
+        p{font-size:0.8rem}
         
         }

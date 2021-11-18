@@ -5,15 +5,13 @@ import './style.css'
 
 export default function SearchArticle(props) {
    const {searchValue,setSearchValue,searchButton,setSearchButton}=props;
-   /* const display = (e) => {
-        e.preventDefault();
-        console.log(searchValue);}*/
+  
     return (
      
 
-    <div className="introductionBackground">
+    <div className="introductionBackgroundArticle">
         <p>Some Music News for you</p>
-        <div className="searchBarContainer">
+        <div className="searchBarContainerArticle">
 
             <label htmlFor ="searchValue">Search for Artist</label>
             
