@@ -53,8 +53,9 @@ h3 {font-size: 1.5rem;
     background-size: 100%;
   }
 
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 500px){
   .articleShort{
       width: 90%;
   }
+  
   }
