@@ -11,7 +11,20 @@ function FinalEvent() {
   const [visible, setVisible] = React.useState(6)
   const [data, setData] = React.useState([]);
 
+    const searchCategories = [
+      "",
+      "Location",
+      "Date", 
+      "Keyword"
+    ] 
   
+  const [selectedSearchCategory, setSelectedSearchCategory] = React.useState(searchCategories[0])
+  const [selectedCity, setSelectedCity] = React.useState('')
+  const [searchButton, setSearchButton] = React.useState(true)
+
+  const [selectedStartDate, setSelectedStartDate] = React.useState(Date.now())
+  const [selectedEndDate, setSelectedEndDate] = React.useState(Date.now())
+  const [selectedKeyword, setSelectedKeyword] = React.useState('')
 
     useEffect(() => {
       fetch("http://localhost:3003/events")
