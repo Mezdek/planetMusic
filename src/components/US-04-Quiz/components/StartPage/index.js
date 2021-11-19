@@ -21,8 +21,8 @@ function StartPage({ start, setDifficulty }) {
 
       <h1 className='quiz-intro-heading'>Music Quiz Challenge</h1>
 
-      <div className='bright-background w-50 mt-5 py-2 m-auto quiz-difficulty-select'>
-        <div className='row justify-content-center align-items-center mt-4'>
+      <div className='py-2 mx-auto quiz-difficulty-select'>
+        <div className='row justify-content-center align-items-center mt-3'>
           <div className='col-auto'>
             <h4>Select a difficulty</h4>
           </div>

@@ -10,7 +10,7 @@ function ScoreAnimation({ score }) {
 
   return (
     <div className='score-animation-container text-center mb-3'>
-      {score - scoreRef.current != 0 && (
+      {score - scoreRef.current !== 0 && (
         <div className='score-animation'>+ {score - scoreRef.current}</div>
       )}
       <h2>Score: {score}</h2>
