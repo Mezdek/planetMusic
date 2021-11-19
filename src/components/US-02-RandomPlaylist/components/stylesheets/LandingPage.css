@@ -1,0 +1,115 @@
+:root {
+  --width-closed: 10%;
+  --width: 95vw;
+  --pink: #ff66c4;
+  --blue: #b2edef;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.landing-page {
+  margin: 0 auto;
+  width: var(--width);
+  min-height: 100vh;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: var(--width);
+  display: flex;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.option-container {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--width) / 10);
+  height: 100%;
+  background:rgba(187, 76, 178, 0.308);
+  margin: 0.2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.4rem #fc41e3;
+  transition: 0.6s;
+  cursor: pointer;
+  overflow: auto;
+}
+
+#mix-container {
+  background-image: url("../../assets/mix.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: calc(var(--width)/20);
+}
+
+#genre-container {
+  background-image: url("../../assets/genre_big.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: calc(var(--width)/20);
+}
+
+#search-container {
+  background-image: url("../../assets/search.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: calc(var(--width)/20);
+
+}
+
+.option-title {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Sigmar One';
+  font-weight: bold;
+  color: #fc41e3;
+  text-shadow: 0 0 0.1rem #fff;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-content {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  flex-flow: column;
+  align-items: center;
+}
+
+input[type="radio"]:checked + .option-container {
+  background-color: #fc41e38a;
+  width: calc(var(--width) - 20%);
+  cursor: default;
+}
+input[type="radio"]:checked + .option-container .option-title {
+  display: none;
+}
+
+input[type="radio"]:checked + #mix-container {
+  background-image: none;
+}
+
+input[type="radio"]:checked + #genre-container {
+  background-image: none;
+}
+
+input[type="radio"]:checked + #search-container {
+  background-image: none;
+}
+
+input[type="radio"]:checked + .option-container .option-content {
+  display: flex;
+}
+
+input[type="radio"]:checked + .option-container .option-icon {
+  display: none;
+}
