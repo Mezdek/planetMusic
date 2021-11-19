@@ -28,18 +28,21 @@ function App() {
   }, []);
 
   const checkLogin = () => {
-    axios.get('/login').then((response) => {
-      if (response.status === 200) {
-        console.log(response.data);
-        setUserName(response.data.userName);
-        setUserId(response.data.userId);
-        setRegisterModal(false);
-        setLoginModal(false);
-        setMessage('');
-        setInputName('');
-        setInputPassword('');
-      }
-    });
+    axios
+      .get('/login')
+      .then((response) => {
+        if (response.status === 200) {
+          console.log(response.data);
+          setUserName(response.data.userName);
+          setUserId(response.data.userId);
+          setRegisterModal(false);
+          setLoginModal(false);
+          setMessage('');
+          setInputName('');
+          setInputPassword('');
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const login = () => {
