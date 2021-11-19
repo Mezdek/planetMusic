@@ -1,0 +1,29 @@
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.search-input > button {
+  border-radius: 30px;
+  width: 2rem;
+  height: 2rem;
+  background-image: url(https://img.icons8.com/ios/50/000000/search.png);
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+}
+.search-input > input {
+  border-radius: 30px;
+  background-color: #212529;
+  padding: 0.1rem;
+  padding-left: 1rem;
+  border: none;
+  height: 2rem;
+  color: white;
+}
+
+.search-input > input:focus {
+  outline: none;
+}

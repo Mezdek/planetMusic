@@ -3,7 +3,6 @@
 html, body{
     width: 100vw;
     background: -webkit-linear-gradient(#141638, #0c0c20, #181944, rgb(238, 233, 255) );
-    min-height: 1000px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

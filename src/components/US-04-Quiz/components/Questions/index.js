@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../../../shared-components/loading';
-import Question from '../Question';
+import Question from '../question';
 import { decodeHtml } from '../../../../helpers';
 
 function Questions({
