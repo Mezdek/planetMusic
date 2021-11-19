@@ -6,7 +6,7 @@ function SongMix({ setTrackSrc, setIsPlaying }) {
       <Hearthis
         setTrackSrc={setTrackSrc}
         setIsPlaying={setIsPlaying}
-        link={"http://localhost:3030/"}
+        link={"http://localhost:5000/music/random"}
       />
     </div>
   );

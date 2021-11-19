@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GenreSelectList from "./GenreSelectList";
 import Hearthis from "./Hearthis";
-import "./stylesheets/SongGenre.css"
+import "./stylesheets/SongGenre.css";
 function SongGenre({ setTrackSrc, setIsPlaying }) {
   const [genre, setGenre] = useState("");
   return (
@@ -10,7 +10,7 @@ function SongGenre({ setTrackSrc, setIsPlaying }) {
       <Hearthis
         setTrackSrc={setTrackSrc}
         setIsPlaying={setIsPlaying}
-        link={`http://localhost:3030/genre/${genre}`}
+        link={`http://localhost:5000/music/genre/${genre}`}
       />
     </div>
   );

@@ -8,7 +8,7 @@ function SongSearch({ setTrackSrc, setIsPlaying }) {
   return (
     <div className="search">
       <div className="search-input">
-      <input type="text" placeholder="Search" ref={searchInput} />
+        <input type="text" placeholder="Search" ref={searchInput} />
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -19,7 +19,7 @@ function SongSearch({ setTrackSrc, setIsPlaying }) {
       <Hearthis
         setTrackSrc={setTrackSrc}
         setIsPlaying={setIsPlaying}
-        link={`http://localhost:3030/search?q=${search}&page=${1}&count=${5}`}
+        link={`http://localhost:5000/music/search?q=${search}&page=${1}&count=${5}`}
       />
     </div>
   );
