@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import StartPage from './components/StartPage';
-import Questions from './components/Questions';
+import Questions from './components/questions';
 import Highscores from './components/Highscores';
 import { useState, useEffect, useContext } from 'react';
 import { format } from 'date-fns';
